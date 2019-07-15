@@ -1,0 +1,63 @@
+<div class="collapse navbar-collapse" id="navbar-menu">
+  <ul class="nav navbar-nav navs pull-right" data-in="fadeInDown" data-out="fadeOutUp">
+
+    <li><%= link_to t(:home), root_path %></li>
+    <li>
+      <%= link_to t(:about_us), about_path %><br />
+
+    </li>
+    <li class="actives">
+      <a href="<%= products_url %>" style="font-size: 40px;
+          color: orange!important;">
+        <%= t(:shop)%>
+      </a>
+    </li>
+    <li><a href="<%= meet_url %>"><%= t(:meet_our_team)%></a></li>
+
+    <li><a href="<%= faq_url %>"><%= t(:faqs)%></a></li>
+    <li><%= link_to t(:blog), blogs_url %></li>
+    <li><%= link_to t(:other_services), other_services_url %></li>
+    <% if I18n.locale == :ar %>
+         <li><%= link_to "EN", { :locale=>'en' } %> </li>
+    <% else %>
+        <li><%= link_to "ع", { :locale=>'ar' } %></li>
+    <% end %>
+    <li>
+      <!-- Start Atribute Navigation -->
+      <div class="attr-nav">
+        <ul>
+          <li class="dropdown">
+            <a href="<%= cart_url %>" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-shopping-bag"></i>
+              <span class="badge"><%= current_order.order_items.size %></span>
+            </a>
+            <ul class="dropdown-menu cart-list">
+              <% current_order.order_items.each do |oi| %>
+                  <li>
+                    <a href="<%= product_url(oi.product.id) %>" class="photo"><img src="<%= oi.product.product_images.first.try(:image)%>" class="cart-thumb" alt="" /></a>
+                    <h6><a href="#"><%= oi.product.name %> </a></h6>
+                    <p><%= oi.quantity %><span class="price"><%= oi.total_price %></span></p>
+                  </li>
+              <% end %>
+              <li class="total">
+                <span ><strong><%= t('cart.total') %></strong>: <%= current_order.subtotal %></span>
+                <br>
+                <span ><strong><%= t('tax_rate') %></strong>: <%= current_order.tax %></span>
+                <br>
+                <span ><strong><%= t('total_after_tax') %></strong>: <%= current_order.total %></span>
+                <br>
+                <span ><strong><%= t('tax_number') %></strong>: ٣٠٠٦١٩٧٦٣١٠٠٠٠٣</span>
+                <br>
+                <hr>
+                <a href="<%= cart_url %>" class="btn btn-default btn-cart"><%= t('cart.cart') %></a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+        </ul>
+      </div>
+      <!-- End Atribute Navigation -->
+    </li>
+  </ul>
+</div>

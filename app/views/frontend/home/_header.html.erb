@@ -1,0 +1,56 @@
+<div class="header-top hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6  ">
+        <ul class="phone">
+          <li>
+            <span><%= t(:main_address)%></span>
+          </li>
+          <li>
+            <span><%= t(:main_mobile)%></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 text-right ">
+        <ul class="phone">
+          <li>
+            <%= t(:working_hours)%>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to current_user.user_name, user_path(current_user.id) %>
+            <% else %>
+              <a data-toggle="collapse" data-target=".nav-collapse" href="#login" id='login-button'><%= t(:login) %></a>
+            <% end %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to(t(:logout), destroy_user_session_path) %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header-top hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row nav-collapse collapse">
+      <%= form_for(:user, url: session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :mobile_number, placeholder: t("activerecord.attributes.user.mobile_number"), class: "form-control" %> 
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: t("activerecord.attributes.user.password"), class: "form-control"  %>
+        </div>
+        <div class="checkbox">
+          <%= f.check_box :remember_me %><%= f.label :remember_me, t('activerecord.attributes.user.remember_me') %>
+        </div>
+        <%= f.submit t(:login), class: "reserve_btn reserve_btn2" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

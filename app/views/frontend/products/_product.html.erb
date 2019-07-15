@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-7">
+
+    <!-- slider -->
+      <% product.product_images.each do |img| %>
+          <div class="item">
+            <%= image_tag img.image.url(:medium) %>
+          </div>
+      <% end %>
+
+
+  </div>
+  <!-- end this col -->
+  <div class="col-md-5">
+    <div class="product">
+      <a href="<%= product_path(product.id)%>">
+        <h3><%= @product.name.humanize %></h3>
+      </a>
+      <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= @product.piece_price %>
+        <%= t(:SAR) %><span><%= t(:price_per_piece) %></span></p>
+      <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= @product.kilo_price %>
+        <%= t(:SAR) %><span><%= t(:price_per_kilo) %></span></p>
+    </div>
+
+    <%= form_tag order_items_path, class: "edit-quantity-form" do |f| %>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <%= label_tag :quantity, Product.human_attribute_name(:quantity) %>
+          </div>
+          <div class="col-xs-9">
+            <%= number_field_tag "order_item[quantity]", {min: 1}, {class: 'form-control'} %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <%= label_tag "Type", Product.human_attribute_name(:quantity_type) %>
+          </div>
+          <div class="col-xs-9">
+            <%= select_tag :quantity_type, options_for_select(Product.quantity_type.options), name: "order_item[quantity_type]", class: 'form-control' %>
+          </div>
+        </div>
+        <%= hidden_field_tag "order_item[product_id]", product.id %>
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <%= label_tag "Slicing Type", Product.human_attribute_name(:slicing_type) %>
+          </div>
+          <div class="col-xs-9">
+            <%= select_tag :slicing_type, options_for_select(OrderItem.slicing_type.options), name: "order_item[slicing_type]", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <div class="btn-group">
+              <%= submit_tag t(:add_to_cart), class: "reserve_btn reserve_btn2" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+  <!-- end this col -->
+</div>

@@ -1,0 +1,91 @@
+<%= render layout: '/frontend/abouts/navigation' do %>
+    <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_items.size == 0 %>
+  <p class="text-center" style="letter-spacing: 3px; ">
+    <%= t('cart.no_items') %>
+  </p>
+<% else %>
+
+    <div class=" first text-center faq">
+      <div class="container">
+        <div class="slider_info2">
+          <h1 class="font_header"><%= t('cart.cart') %></h1>
+          <div class="stars">
+            <img src="<%= asset_path 'stars.jpg'%>" alt="">
+          </div>
+        </div>
+
+        <!-- Start Cart -->
+        <div class="row cart_product ">
+          <div class="col-md-9">
+            <div class="  text-left">
+              <div class="cart table-wrapper">
+                <div class="table-responsive ">
+                  <table class="cart items data table table-bordered table-striped">
+                    <thead>
+                    <tr>
+<!--                      <th class="col item" scope="col" style="width:100px">-->
+<!--                        <span><%#= t('cart.image') %></span>-->
+<!--                      </th>-->
+                      <th class="col item" scope="col">
+                        <span><%= t('cart.product_name') %></span>
+                      </th>
+                      <th class="col price" scope="col">
+                        <span><%= t('cart.price') %></span>
+                      </th>
+                      <th class="col qty" scope="col">
+                        <span><%= t('cart.quantity') %></span>
+                      </th>
+                      <th class="col subtotal" scope="col">
+                        <span><%= t('cart.total') %></span>
+                      </th>
+                      <th class="col actions" scope="col">
+                        
+                      </th>
+                      <th class="col actions" scope="col">
+                        
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody class="cart item">
+                    <% @order_items.each do |order_item| %>
+                        <%= render 'cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+                    <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="totals">
+              <% order = @order_items.first.order %>
+              <h5>
+                <%= t('cart.total') %> = <span><%= order.subtotal %></span> <%= t(:SAR) %>
+              </h5>
+              <h5>
+                <%= t('tax_rate') %> = <span><%= order.tax %></span> <%= t(:SAR) %>
+              </h5>
+              <h5>
+                <%= t('total_after_tax') %> = <span><%= order.total %></span> <%= t(:SAR) %>
+              </h5>
+              <%= link_to t('cart.remove_products'), { controller: 'carts', action: 'destroy'}, { data: { confirm: t('cart.sure_delete_all') }, method: :delete, class: "btn btn-danger" } %>
+              <%= button_to t("cart.checkout"), checkout_order_cart_path, class: "reserve_btn reserve_btn2 btnCart"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+

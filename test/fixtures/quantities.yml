@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: quantities
+#
+#  id            :integer          not null, primary key
+#  quantity      :decimal(, )      default(0.0)
+#  unit          :string           default(NULL)
+#  quantity_type :string
+#  product_id    :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 9.99
+  unit: MyString
+  quantity_type: MyString
+  product: one
+
+two:
+  quantity: 9.99
+  unit: MyString
+  quantity_type: MyString
+  product: two

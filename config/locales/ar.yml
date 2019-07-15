@@ -1,0 +1,483 @@
+---
+ar:
+  SAR: ريال
+  about_us: من نحن
+  total_greater_than_100: 'يجب ان يزيد المجمع عن 100 ريال'
+  wait_your_order_to_finish: 'انتظر الطلب حتي يكتمل'
+  activerecord:
+    attributes:
+      admin:
+        email: الأيميل
+        password: كلمة المرور
+        password_confirmation: تأكيد كلمة المرور
+      blog:
+        admin: الكاتب
+        body: المحتوي
+        image: الصورة
+        title: العنوان
+      category:
+        description: الوصف
+        name: الأسم
+        products: المنتجات
+      other_service:
+        description: الوصف
+        name: الأسم
+        phone: رقم الجوال
+        service_images: الصور
+      service_image:
+        title: العنوان
+        image: الصوره
+      meter:
+        percentage: النسبة المئوية
+      order:
+        address: العنوان
+        address_url: رابط عنوان العميل
+        notes: ملاحظات
+        order_items: المنتجاتا
+        print: اطبع
+        status: الحالة
+        subtotal: المجموع بدون ضرائب
+        tax: ضرائب
+        total: المجموع بالضرائب
+        user_full_name: اسم العميل
+        user_phone_number: رقم الجوال
+      order_info:
+        address: العنوان
+      product:
+        category: التصنيف
+        desc: الوصف
+        kilo_price: سعر الكيلو
+        name: الأسم
+        piece_price: سعر الحبة
+        promotion_kilo_price: سعر  الكيلو بعد الخصم
+        promotion_piece_price: سعر  الحبة بعد الخصم
+        quantity: الكمية
+        quantity_type: حبة\كيلو
+        slicing_type: طريقة التقطيع
+      quantity:
+        product: المنتج
+        quantity: الكمية
+        quantity_type: نوع الكمية
+        unit: الوحدة
+      slider:
+        image: الصورة
+        link: الرابط
+        text: المحتوي
+      team_member:
+        image: الصورة
+        job_title: المسي الوظيفي
+        name: الأسم
+        order: الترتيب في الظهور
+        summary: كلمة عنه
+      user:
+        email: الأيميل
+        is_mobile_verified: فعل بالجوال
+        mobile_number: رقم الجوال
+        password: كلمة المرور
+        password_confirmation: تأكيد كلمة المرور
+        remember_me: تذكرنى
+    errors:
+      messages:
+        record_invalid: 'فشل التحقّق من: %{errors}'
+        restrict_dependent_destroy:
+          has_many: لا يمكن حذف السجل لوجود سجلات تعتمد عليه %{record}
+          has_one: لا يمكن حذف السجل لوجود سجل يعتمد عليه %{record}
+    models:
+      about: من نحن
+      admin: المديرين
+      blog: المدونات
+      category: التصنيفات
+      other_service: خدمتنا الأخرى
+      city: المدن
+      incoming_store: المحل
+      meter: المؤشر
+      order: الطلبات
+      order_info: تفاصيل الطلب
+      order_item: منتج الطلب
+      order_status: حالة الطلب
+      product: المنتجات
+      product_image: صورة المنتج
+      service_image: صورة المنتج
+      quantity: الكمية
+      slider: السلايدر
+      team_member: الفريق
+      user: المستخدمين
+  add_to_cart: أضف للعربة
+  admin:
+    loading: جاري التحميل
+  arabic: ع
+  attributes:
+    created_at: تاريخ الأنشاء
+    id: رقم المسلسل
+    updated_at: تاريخ التحديث
+  author: الكاتب
+  blog: المدونة
+  boat_to_home: من البوت إلى البيت
+  boxes: "‫الصناديق‬"
+  boxes_body: صناديق السمك الصديقة للبيئة التي تحتفظ بالبرودة والمصنوعة خاصة لهذا المنتج ، تجربة طعم كبير من البحر دون أن تترك منزلك! يتم تسليم صناديق الأسماك الطازجة اللذيذة مباشرة إلى الباب الخاص بك في صناديق معزولة تماما بعناية، مع كل شيء من المفضلة لأسرتك من محيط أسماك اليوم لدينا.
+  cart:
+    actions: أفعال
+    cart: العربة
+    checkout: أشترى الأن
+    image: صورة
+    no_items: لا يوجد منتجات داخل العربة
+    price: السعر
+    product_name: أسم المنتج
+    quantity: الكمية
+    remove: أحذف المنتج
+    remove_products: أحذف كل المنتجات
+    sure_delete: هل أنت متأكد من حذف المنتج %{product_name} من العربة؟
+    sure_delete_all: هل أنت متأكد من حذف حميع المنتجات من العربة؟
+    total: المجموع
+    update_quantity: تعديل الكمية
+  cart_is_empty: العربة فارغة
+  comercial_number:  رقم السجل التجاري
+  confirm: تأكيد
+  contacts: اتصل بنا
+  created_successfully: تم الحفظ بنجاح
+  date:
+    abbr_day_names:
+    - الأحد
+    - الإثنين
+    - الثّلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السّبت
+    abbr_month_names:
+    - 
+    - ينا
+    - فبر
+    - مار
+    - أبر
+    - ماي
+    - يون
+    - يول
+    - أغس
+    - سبت
+    - أكت
+    - نوف
+    - ديس
+    day_names:
+    - الأحد
+    - الإثنين
+    - الثّلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السّبت
+    formats:
+      default: "%d-%m-%Y"
+      long: "%e %B، %Y"
+      short: "%e %b"
+    month_names:
+    - 
+    - يناير
+    - فبراير
+    - مارس
+    - أبريل
+    - مايو
+    - يونيو
+    - يوليو
+    - أغسطس
+    - سبتمبر
+    - أكتوبر
+    - نوفمبر
+    - ديسمبر
+    order:
+    - :day
+    - :month
+    - :year
+  date_time: في
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: حوالي %{count} ساعات
+        many: حوالي %{count} ساعة
+        one: حوالي ساعة واحدة
+        other: حوالي %{count} ساعة
+        two: حوالي ساعتان
+        zero: حوالي صفر ساعات
+      about_x_months:
+        few: حوالي %{count} أشهر
+        many: حوالي %{count} شهر
+        one: حوالي شهر واحد
+        other: حوالي %{count} شهر
+        two: حوالي شهران
+        zero: حوالي صفر أشهر
+      about_x_years:
+        few: حوالي %{count} سنوات
+        many: حوالي %{count} سنة
+        one: حوالي سنة
+        other: حوالي %{count} سنة
+        two: حوالي سنتان
+        zero: حوالي صفر سنوات
+      almost_x_years:
+        few: ما يقرب من %{count} سنوات
+        many: ما يقرب من %{count} سنة
+        one: تقريبا سنة واحدة
+        other: ما يقرب من %{count} سنة
+        two: ما يقرب من سنتين
+        zero: ما يقرب من صفر سنوات
+      half_a_minute: نصف دقيقة
+      less_than_x_minutes:
+        few: أقل من %{count} دقائق
+        many: أقل من %{count} دقيقة
+        one: أقل من دقيقة
+        other: أقل من %{count} دقيقة
+        two: أقل من دقيقتان
+        zero: أقل من صفر دقائق
+      less_than_x_seconds:
+        few: أقل من %{count} ثوان
+        many: أقل من %{count} ثانية
+        one: أقل من ثانية
+        other: أقل من %{count} ثانية
+        two: أقل من ثانيتان
+        zero: أقل من صفر ثواني
+      over_x_years:
+        few: أكثر من %{count} سنوات
+        many: أكثر من %{count} سنة
+        one: أكثر من سنة
+        other: أكثر من %{count} سنة
+        two: أكثر من سنتين
+        zero: أكثر من صفر سنوات
+      x_days:
+        few: "%{count} أيام"
+        many: "%{count} يوم"
+        one: يوم واحد
+        other: "%{count} يوم"
+        two: يومان
+        zero: صفر أيام
+      x_minutes:
+        few: "%{count} دقائق"
+        many: "%{count} دقيقة"
+        one: دقيقة واحدة
+        other: "%{count} دقيقة"
+        two: دقيقتان
+        zero: صفر دقائق
+      x_months:
+        few: "%{count} أشهر"
+        many: "%{count} شهر"
+        one: شهر واحد
+        other: "%{count} شهر"
+        two: شهران
+        zero: صفر أشهر
+      x_seconds:
+        few: "%{count} ثوان"
+        many: "%{count} ثانية"
+        one: ثانية واحدة
+        other: "%{count} ثانية"
+        two: ثانيتان
+        zero: صفر ثواني
+    prompts:
+      day: اليوم
+      hour: ساعة
+      minute: دقيقة
+      month: الشهر
+      second: ثانية
+      year: السنة
+  deleted_successfully: تم الحذف بنجاح
+  delivery: التوصيل
+  delivery_body: "‫أفضل المأكولات البحرية أفضل خدمة أفضل نصيحة هذا ما نتطلع له دائما لقد تم تقديم أفضل نوعية المأكولات البحرية مباشرة إلى منازل عملائنا في الرياض ونتطلع لخدمة جميع أنحاء المملكه العربية السعودية ولكل شخص في اي منطقة يرغب يتواصل مع احد من ممثلي  خدمة العملاء الاتصال عن طريق الهاتف قبل تاريخ التسليم. وسوف نوجه انتباهكم إلى أي عروض موسمية وخاصة، وسوف نكون سعداء لتقديم المشورة بشأن مجموعة مختارة من الأسماك لتناسب احتياجاتك."
+  delivery_time: التوصيل عادة يكون خلال 12 ساعة
+  email: البريد الالكتروني
+  enumerize:
+    order:
+      status:
+        cart: عربة التسوق
+        completed: مكتمل
+        on_the_way: في الطريق
+        pending: قيد الانتظار
+        preparing: جاري التجهيز
+    order_item:
+      quantity_type:
+        kg: Killo
+        kilo: كيلو
+        piece: قطعة
+      slicing_type:
+        clean: تنظيف
+        sengary: مشوى(سنجارى)
+        with_out_clean: بدون تنظيف
+    product:
+      quantity_type:
+        kilo: كيلو
+        piece: قطعة
+  errors:
+    format: "%{message}"
+    messages:
+      accepted: يجب أن تقبل %{attribute}
+      blank: لا يمكن أن يكون محتوى %{attribute} فارغاً
+      confirmation: محتوى %{attribute} لا يتوافق مع %{attribute}
+      empty: لا يمكن أن يكون محتوى %{attribute} فارغاً
+      equal_to: يجب أن يساوي طول %{attribute} %{count}
+      even: يجب أن يكون عدد %{attribute} زوجياً
+      exclusion: حقل %{attribute} محجوز
+      greater_than: ميجب أن يكون عدد %{attribute} أكبر من %{count}
+      greater_than_or_equal_to: يجب أن يكون عدد %{attribute} أكبر أو يساوي %{count}
+      inclusion: "%{attribute} غير وارد في القائمة"
+      invalid: محتوى %{attribute} غير صالح
+      less_than: يجب أن يكون عدد %{attribute} أصغر من %{count}
+      less_than_or_equal_to: يجب أن يكون عدد %{attribute} أصغر أو  يساوي %{count}
+      not_a_number: يجب أن يكون محتوى %{attribute} رقماً
+      not_an_integer: يجب أن يكون عدد %{attribute} عدد صحيحاً
+      odd: يجب أن يكون عدد %{attribute} عدداً فردياً
+      other_than:
+        few: طول %{attribute} يجب ألاّ يكون %{count} أحرف
+        many: طول %{attribute} يجب ألاّ يكون %{count} حرفاً
+        one: طول %{attribute} يجب ألاّ يكون حرفاً واحداً
+        other: طول %{attribute} يجب ألاّ يكون %{count} حرفاً
+        two: طول %{attribute} يجب ألاّ يكون حرفان
+        zero: طول %{attribute} يجب ألاّ يكون صفر حرف
+      present: يجب ترك حقل %{attribute} فارغاً
+      taken: حقل %{attribute} محجوز مسبقاً
+      too_long:
+        few: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حروف)
+        many: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حرف)
+        one: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو حرف واحد)
+        other: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حرف)
+        two: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو حرفان)
+        zero: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو ولا حرف)
+      too_short:
+        few: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حروف)
+        many: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حرف)
+        one: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو حرف واحد)
+        other: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حرف)
+        two: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو حرفان)
+        zero: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو ولا حرف)
+      wrong_length:
+        few: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} أحرف)
+        many: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} حرف)
+        one: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون حرف واحد)
+        other: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} حرف)
+        two: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون حرفان)
+        zero: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون ولا حرف)
+    template:
+      body: يُرجى التحقّق من الحقول التّالية:%{attribute}
+      header:
+        few: ليس بالامكان حفظ %{model} لسبب وجود %{count} أخطاء.
+        many: ليس بالامكان حفظ %{model} لسبب وجود %{count} خطأ.
+        one: ليس بالامكان حفظ %{model} لسبب وجود خطأ واحد.
+        other: ليس بالامكان حفظ %{model} لسبب وجود %{count} خطأ.
+        two: ليس بالامكان حفظ %{model} لسبب وجود خطئان.
+        zero: ليس بالامكان حفظ %{model} لسبب ولا خطأ.
+  faqs: سؤال و جواب
+  find_us_on: الأن يمكنك طلب الأسماك من جوالك
+  first_fish_website: نفتخر بكوننا اول تطبيق بيع اسماك طازة في المملكة
+  fish_day: يوم السمك
+  footer_body: يوم السمك يقدم فقط السمك الطازج من المياه القريبة والبعيدة وفي كل مكان
+    بينهما. المأكولات البحرية هي شغفنا ، ونضارتها رسالتنا ، والجودة هي التزامنا.
+  go_to_home: الذهاب للصفحة الرئيسية
+  helpers:
+    select:
+      prompt: يُرجى الاختيار
+    submit:
+      create: "%{model} إنشاء"
+      submit: "%{model} حِفظ"
+      update: "%{model} تحديث"
+  home: الرئيسية
+  inclusion_1_100: يجب ان يكون بين 0..100
+  login: تسجيل الدخول
+  logout: تسجيل الخروج
+  main_address: 'عنوان: المملكة العربية السعودية ، الرياض'
+  main_mobile: " جوال: 920008096 | 0558308096 "
+  meet_our_team: فريق العمل
+  meet_our_team_title: نعتبر العائلة الوحدة لشدة تقارب أفكارنا و قوة العزيمة للعمل في الفريق الواحد الذي يهدف لتطوير المنتج ووصلة الى القمة التي يطمح لها كل شخص ناجح فريقنا سعودي مختص بالاسماك و البحريات و يوجد معنا صياد و شيف بحريات .
+  not_found: لم يتم العثور علي الموارد
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: مليار
+          million: مليون
+          quadrillion: كدريليون
+          thousand: ألفّ
+          trillion: تريليون
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            few: Bytes
+            many: Bytes
+            one: Byte
+            other: Bytes
+            two: Bytes
+            zero: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  offers: العروض
+  online_order: اذا كنت لم تطلب الأسماك الطازجة علي الانترنت من قبل سيكون من مفهوم المستحيل
+  online_order_body: يمكننا أن نقدم األسماك الطازجة خدمة التوصيل إلى المنازل ألننا متأكدون ٪100 من أننا قد وضعت نظاما يسلم السمك الطازجة والمأكوالت البحرية مباشرة إلى الباب الخاص .بك
+  other_info: معلومات اخرى
+  other_services: خدماتنا الأخرى
+  our_lab: "‫معملنا‬"
+  our_lab_body: Our lab body
+  our_lab_body_html: |
+    اعددنا هذا المكان بكل عناية و شهادات
+    صحية </br>لكل من يعمل به
+    و أجهزة مبتكرة
+     بتنظيف السمك و تغليفه ليصلك بنفس الجودة</br> و درجة الحرارة التي تجعله طازج كساعة صيده
+  packing: التغليف‬
+  payment_methods: برجاء العلم ان وسيلة الدفع هي الدفع عند الأستلام و ايضا يتوفر جهاز سحب من بطاقات الصراف الالي.
+  price_per_kilo: لكل كيلو
+  price_per_piece: لكل حبة
+  print: اطبع
+  read_more: أقرا المزيد
+  shop: المتجر
+  similar: منتاجات متشابه
+  support:
+    array:
+      last_word_connector: " و "
+      two_words_connector: " و "
+      words_connector: " ، "
+  tax_number: الرقم الضريبي
+  tax_rate: القيمة المضافة
+  text:
+    invalid_api_key: Invalid api key
+  thanks_for_your_purchase: شكرا لتسجيل طلبك
+  time:
+    am: صباحًا
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      long: "%d %B, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: مساءً
+  total_after_tax: المجمع
+  updated_successfully: تم التعديل بنجاح
+  verified_successfully: تم تفعيل رقم الجوال
+  verify_your_account: برجاء تفعيل الحساب
+  working_hours: أوقات العمل من 7 صباحا الي 7 مساءً
+  wrong_code: كود خاطئ
+  you_may_like: يمكن قرأة ايضا
+  your_order_number: رقم طلبك هو
+  your_order_status: حالة الطلب هي

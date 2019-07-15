@@ -1,0 +1,27 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+    <%= render 'frontend/home/navlinks' %>
+<% end %>
+<div class=" first text-center">
+  <div class="container">
+    <div class="row ">
+      <div class="col-xs-12 col-md-4" style="float: none; margin: 0 auto;">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <span class="base" data-ui-id="page-title-wrapper"><%= t(:thanks_for_your_purchase) %></span>
+            </h3>
+
+          </div>
+          <div class="panel-body">
+            <p class="cartP"><%= t(:your_order_number) %>
+              <span><%= current_order.id %></span>.</p>
+            <p class="cartP"><%= t(:your_order_status) %>
+              <span>: <%= current_order.status.text %></span>.</p>
+            <%= link_to t(:go_to_home), root_path, class: " reserve_btn reserve_btn2 btnCart" %>
+
+          </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

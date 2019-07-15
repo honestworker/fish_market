@@ -1,0 +1,62 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+    <%= render '/frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start MainSlider -->
+
+<div class="mainSlider"> </div>
+
+<!-- End MainSlider -->
+
+
+<!-- Start Content -->
+
+<div class=" first text-center">
+
+   <div class="container">
+
+       <div class="slider_info2">
+
+          <h1 class="font_header">تسجيل الدخول </h1>
+
+          <div class="stars">
+
+            <img src="images/stars.jpg" alt="">
+
+          </div>
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+              <div class="form-group">
+
+                   <%= f.label 'الأيميل' %>
+
+                   <%= f.text_field :user_name, autofocus: true, class: "form-control", autocomplete: "user_name", placeholder: "الأيميل" %>
+
+                   <small id="userNameHelp" class="form-text text-danger">برجاء ادخال الأيميل</small>
+              </div>
+
+              <div class="form-group">
+                   <%= f.label 'كلمة المرور' %>
+                   <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: 'كلمة المرور' %>
+
+                   <small id="userNameHelp" class="form-text text-danger">برجاء ادخال كلمة المرور</small>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "دخول", class: "reserve_btn reserve_btn2" %>
+              </div>
+
+              <div class="form-group">
+                <a href="<%= new_user_password_path %>"> نسيت كلمة المرور</a>
+              </div>
+
+          <% end %>
+
+       </div>
+
+   </div>
+
+</div>
+
+<!-- End Content -->

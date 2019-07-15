@@ -1,0 +1,37 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first">
+  <div class="container">
+    <div class="slider_info2 text-center">
+      <h1 class="font_header"><%= t(:meet_our_team) %></h1>
+      <div class="stars">
+        <img src=" <%= asset_path 'stars.jpg' %>" alt="">
+      </div>
+      <p><%= t(:meet_our_team_title) %></p>
+    </div>
+    <!-- Start Meet -->
+    <div class="our_meet">
+      <% @team.each_with_index do |member, index| %>
+        <% if index.even? %>
+          <div class="row">
+        <% end %>
+        <div class="col-sm-6 col-md-6">
+          <div class="meet_info wow zoomIn" data-wow-duration=".5s" data-wow-delay=".5s">
+            <img src="<%= member.try(:image).try(:url) %>">
+            <h4><%= member.name %> </h4>
+            <h5><%= member.job_title %></h5>
+            <p><%= member.summary %></p>
+          </div>
+        </div>
+        <% if index.odd? %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <!-- End Meet -->
+</div>
+<!-- End Content -->

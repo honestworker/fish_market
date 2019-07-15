@@ -1,0 +1,17 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first text-center">
+  <div class="container">
+    <div class="slider_info2">
+      <h1 class="font_header"><%= t(:about_us) %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path 'stars.jpg' %> " alt="">
+      </div>
+      <p>  <%= @about.body %> </p>
+    </div>
+  </div>
+</div>
+<!-- End Content -->

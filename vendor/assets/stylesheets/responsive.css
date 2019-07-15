@@ -1,0 +1,72 @@
+@media (max-width: 767px) {
+    nav.navbar.navbar-inverse.navbar-mobile ul.nav {
+        border-top: solid 1px #222;
+    }
+    .title-xlarge ,.slider_info h4{
+        font-size: 30px;
+    }
+    .slider_info .font_header {
+        font-size: 100px;
+    }
+    .slider_info2 .font_header {
+        font-size: 80px;
+    }
+    .slider_info2 h2,.popular h2,.full_info h2,.Delicious_info h2, .testimonials_info h2 {
+        color: #262626;
+        font-size: 24px;
+    }
+    .footer_bottom , .footer_bottom .text-right{
+        text-align: center !important
+    }
+    .contact_info img {
+        margin-bottom: 30px
+    }
+    .contact_info h4 {
+        font-size: 20px
+    }
+    nav.navbar.bootsnav .navbar-header {
+        padding: 9px 15px 25px;
+    }
+    nav.navbar.bootsnav .navbar-toggle {
+        background-color: transparent;
+        color: #fff;
+        font-size: 28px;
+        margin-top: 14px;
+    }
+    nav.navbar.bootsnav ul.nav>li>a {
+        border: 0;
+        border-bottom: 1px solid
+    }
+    nav.navbar.bootsnav .navbar-collapse.collapse.in {
+        display: block !important;
+        max-height: 420px;
+        height: auto;
+    }
+    nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .title,ul.menu-col li a {
+        color: #e0e0e0;
+        font-size: 13px
+    }
+    article.project h3 {
+        font-size: 20px;
+        padding: 60px 10px;
+    }
+}
+@media (max-width: 1200px) and (min-width: 992px)
+{
+    .navbar-default .navbar-nav>li>a{
+        font-size: 12px  !important
+    }
+    
+}
+
+@media (max-width: 1260px) and (min-width: 767px) {
+    .test .owl-prev {
+        left :-5px
+    }
+    .test .owl-next {
+        right :-5px
+    }
+    nav.navbar.bootsnav .navbar-header {
+        padding: 9px 15px 25px;
+    }
+}

@@ -1,0 +1,164 @@
+<%= link_to t(:print), '#', class: "btn btn-primary",
+            onclick: 'printContent()' %>
+
+<% @order = Order.find(params[:id]) %>
+
+
+<div class="print-section">
+  <table width="625px">
+    <tr>
+      <td align='right'>
+        يوم السمك
+        <br>
+        توصيل السمك الطازج
+      </td>
+      <td align='left'>Fishday
+        <br>Delivering fresh fish
+      </td>
+    </tr>
+  </table>
+  <table width="625px">
+    <tr>
+      <td>
+        <p style='text-align: center'><%= t(:tax_number) %>  ٣٠٠٦١٩٧٦٣١٠٠٠٠٣ </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style='text-align: center'><%= t(:comercial_number) %>  ١١٣١٠٢٧٨٦٧ </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style='text-align: center'><%= t(:your_order_number) + ' : ' + @order.id.to_s %> </p>
+      </td>
+    </tr>
+  </table>
+  <table width="625px">
+    <tr>
+      <td align='left'>
+        <p style='text-align: right'><%= t('activerecord.attributes.order.user_phone_number') + @order.user_phone_number.to_s %></p>
+      </td>
+      <td>
+        <p style='text-align: left'><%= t('activerecord.attributes.order.user_full_name') + ' : ' + "#{(@order.user_full_name)}" %></p>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table style="border: 1px solid" width="625px">
+    <thead>
+    <tr>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>اسم المنتج</th>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>سعر القطعة</th>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>الكمية</th>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>نوع الكمية</th>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>طريقة التقطيع</th>
+      <th style='padding: 5px 5px 5px 0;  border: 1px solid;'>سعر الكل</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @order.order_items.each do |order_item| %>
+      <tr align="left">
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid">
+              <span>
+                <%= order_item.product.name %>
+              </span>
+        </td>
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid">
+              <span>
+                <%= order_item.unit_price %>
+              </span>
+        </td>
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid">
+              <span>
+                <%= order_item.quantity %>
+              </span>
+        </td>
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid">
+              <span>
+                <%= order_item.quantity_type.text %>
+              </span>
+        </td>
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid ">
+              <span>
+                <%= order_item.slicing_type.text %>
+              </span>
+        </td>
+        <td style="padding: 10px 5px 10px 0;  text-align: right; border: 1px solid">
+              <span>
+                <%= order_item.total_price %>
+              </span>
+        </td>
+        <!--          <td style="padding: 10px 5px 10px 0; border-right: 1px solid; text-align: right; border-top: 1px solid;">-->
+        <!--            <span>-->
+        <%#= order_item.product.get_discount_by_type(order_item.slicing_type, order_item.quantity) %>
+        <!--            </span>-->
+        <!--          </td>-->
+
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+  <table width="625px">
+    <tbody>
+    <tr>
+      <td align="right" width="40%">
+        <b>
+          <%= t('activerecord.attributes.order.subtotal') %> :
+        </b>
+      </td>
+      <td>
+        <span><%= @order.subtotal %></span>
+      </td>
+    </tr>
+    <tr style='border-bottom: 1px solid #ddd'>
+      <td align="right" width="40%">
+        <b>
+          <%= t('activerecord.attributes.order.tax') %> :
+        </b>
+      </td>
+      <td>
+        <span><%= @order.tax %></span>
+      </td>
+    </tr>
+    <tr style='border-bottom: 1px solid #ddd'>
+      <td align="right" width="40%">
+        <b>
+          <%= t('activerecord.attributes.order.total') %> :
+        </b>
+      </td>
+      <td>
+        <span><%= @order.total %></span>
+      </td>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <br>
+  <table width="625px">
+    <tr>
+      <td align="right">
+        جوال: 920008096 | 0558308096
+      </td>
+      <td align="left">
+         info@fishday.com.sa
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<script>
+    $('.print-section').hide();
+    function printContent() {
+        var restorepage = $('body').html();
+        $('.print-section').show();
+        var printcontent = $('.' + 'print-section').clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>

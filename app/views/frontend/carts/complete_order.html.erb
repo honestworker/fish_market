@@ -1,0 +1,41 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+    <%= render 'frontend/home/navlinks' %>
+<% end %>
+<div class=" first text-center">
+  <div class="container">
+    <div class="row ">
+      <div class="col-xs-12 col-md-4" style="float: none; margin: 0 auto;">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <%= t "activerecord.models.order_info" %>
+            </h3>
+
+          </div>
+          <div class="panel-body">
+            <%= form_tag order_status_cart_path do |f| %>
+                <%= label_tag :user_full_name, t("activerecord.attributes.order.user_full_name") %>
+                <%= text_field_tag "order[user_full_name]",user_signed_in? ? current_user.user_name : nil , :class => 'form-control'%>
+                <hr>
+                <%= label_tag :address, t("activerecord.attributes.order.address") %>
+                <%= text_field_tag "order[address]",user_signed_in? ? current_user.address : nil, :class => 'form-control'%>
+                <hr>
+                <%= label_tag :notes, t("activerecord.attributes.order.notes") %>
+                <%= text_field_tag "order[notes]", nil,:class => 'form-control'%>
+                <hr>
+                <%= label_tag :Phone, t("activerecord.attributes.order.user_phone_number") %>
+                <%= number_field_tag "order[user_phone_number]",user_signed_in? ? current_user.mobile_number : nil, :class => 'form-control', min: 1 %>
+                <hr>
+
+              <div class="order-hints">
+                <p><%= t(:payment_methods) %></p>
+                <p><%= t(:delivery_time) %></p>
+              </div>
+                </div>
+                <%= submit_tag t(:confirm) , class: "btn btn-success btn-lg btn-block" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first blog-info text-center">
+  <div class="container ">
+    <div class="slider_info2 ">
+      <h1 class="font_header"><%= t(:blog) %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path 'stars.jpg' %> " alt="">
+
+      </div>
+      <div class="col-md-9">
+        <div class="text-left">
+          <% @blogs.each do |blog| %>
+            <img src="<%= blog.try(:image).try(:url) %>" class="img-responsive " style="width: 570px; height: 520px;">
+            <h4><%= blog.title %></h4>
+
+            <ol class="breadcrumb">
+              <li><%= "#{t('author')} : #{blog.admin.email} " %></li>
+              <li><%= "#{t('date_time')} : #{blog.created_at} " %> </li>
+            </ol>
+
+            <%= link_to t(:read_more), blog_path(blog) %>
+            <hr>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Content -->

@@ -1,0 +1,120 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+    <%= render 'frontend/home/navlinks' %>
+<% end %>
+<!-- Start Content -->
+<div class=" first ">
+  <div class="container">
+    <div class="slider_info2 text-center">
+      <h1 class="font_header"><%= @product.name.humanize %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path('stars.jpg') %>" alt="">
+      </div>
+    </div>
+
+
+    <!-- Start model -->
+    <div class=" quick ">
+      <div class="row">
+
+        <div class="col-md-7">
+
+          <!-- slider -->
+          <div class="slider_inner2">
+            <% @product.product_images.each do |img| %>
+                <div class="item">
+                  <%= image_tag img.image %>
+                </div>
+            <% end %>
+          </div>
+
+        </div>
+        <!-- end this col -->
+        <div class="col-md-5 filter-it">
+          <div class="product">
+            <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= @product.piece_price %>
+              <%= t(:SAR) %><span><%= t(:price_per_piece) %></span></p>
+            <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= @product.kilo_price %>
+              <%= t(:SAR) %><span><%= t(:price_per_kilo) %></span></p>
+            <br>
+          </div>
+
+          <%= form_tag order_items_path, class: "edit-quantity-form" do |f| %>
+              <!-- <div class="row"> -->
+                <!-- <div class="col-xs-8"> -->
+                
+
+                  <div class="form-group row">
+                    <div class="col-xs-3">
+                      <%= label_tag :quantity, Product.human_attribute_name(:quantity) %>
+                    </div>
+                    <div class="col-xs-9">
+                      <%= number_field_tag "order_item[quantity]", {min: 1}, {class: 'form-control'} %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-xs-3">
+                      <%= label_tag "Type", Product.human_attribute_name(:quantity_type) %>
+                    </div>
+                    <div class="col-xs-9">
+                      <%= select_tag :quantity_type, options_for_select(Product.quantity_type.options), name: "order_item[quantity_type]", class: 'form-control' %>
+                    </div>
+                  </div>
+                  <%= hidden_field_tag "order_item[product_id]", @product.id %>
+                  <div class="form-group row">
+                    <div class="col-xs-3">
+                      <%= label_tag "Slicing Type", Product.human_attribute_name(:slicing_type) %>
+                    </div>
+                    <div class="col-xs-9">
+                      <%= select_tag :slicing_type, options_for_select(OrderItem.slicing_type.options), name: "order_item[slicing_type]", class: 'form-control' %>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              <!-- </div> -->
+              <div class="row">
+                <div class="col-xs-12 text-right">
+                  <div class="btn-group">
+                    <%= submit_tag t(:add_to_cart), class: "reserve_btn reserve_btn2" %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+        <!-- end this col -->
+      </div>
+    </div>
+    <!-- End modal -->
+
+    <hr>
+    <br>
+    <div class="slider_info2 text-center">
+      <h3 class="font_header"><%= t(:similar) %> </h3>
+    </div>
+    <!-- Start Also Like -->
+    <div class="section2">
+      <div id="owl-demo3">
+        <% @products.each do |product| %>
+            <div class="item">
+              <div class="product">
+                <div class="imagei">
+                  <a href="<%= product_path(locale: I18n.locale, id: product.id) %>"><img src="<%= product.product_images.first.try(:image).try(:url) %>" alt=""></a>
+                  <a href="<%= product_path(locale: I18n.locale, id: product.id) %>">
+                    <h3><%= product.name.humanize %></h3>
+                  </a>
+                  <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= product.piece_price %>
+                    <%= t(:SAR) %><span><%= t(:price_per_piece) %></span></p>
+                  <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= product.kilo_price %>
+                    <%= t(:SAR) %><span><%= t(:price_per_kilo) %></span></p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- End Also Like -->
+
+
+  </div>
+  <!-- end container -->
+</div>
+<!-- End Content -->
+

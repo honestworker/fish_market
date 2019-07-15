@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: team_members
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  job_title          :string
+#  summary            :text
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  order              :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  job_title: MyString
+  summary: MyString
+  image: 
+
+two:
+  name: MyString
+  job_title: MyString
+  summary: MyString
+  image: 

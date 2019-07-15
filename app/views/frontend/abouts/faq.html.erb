@@ -1,0 +1,331 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first text-center faq">
+  <div class="container">
+    <div class="slider_info2">
+      <h1 class="font_header"><%= t(:faqs) %></h1>
+      <div class="stars">
+        <img src="<%= asset_path 'stars.jpg' %>" alt="">
+      </div>
+      <div class="panel-group" id="accordion-1" role="tablist" aria-multiselectable="true">
+
+        <% if I18n.locale == :ar %>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-1">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-1" aria-expanded="false" aria-controls="collapseTwo-1">
+                  كيف يمكنني الطلب؟ ووضع الطلبات ؟
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-1" aria-expanded="false"
+                 style="height: 0px;">
+              <div class="panel-body">
+                <p>كل وسائل التواصل متاحه لطلب وفرها لكم يوم السمك الواتساب او الاتصال على رقمنا الموحد او عبر التطبيق
+                  او المتجر اوعلى موقعنا الاكتروني </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-2">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-2" aria-expanded="false" aria-controls="collapseTwo-1">
+                  كيف طريقه الدفع ؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-2" aria-expanded="false">
+              <div class="panel-body">
+                <p> حققنا رغبة الكثير بدفع عند الاستلام والتاكد من طلبك والرغبة به </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-3">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-3" aria-expanded="false" aria-controls="collapseTwo-3">
+                  وكم تكلفة التوصيل؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-3" aria-expanded="false">
+              <div class="panel-body">
+                <p> تكاليف التسليم ٢٥ريال لكل وجهة الفردية، بغض النظر عن عدد صناديق </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-4">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-4" aria-expanded="false" aria-controls="collapseTwo-4">
+                  اين موقع الخدمة ؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-4" aria-expanded="false">
+              <div class="panel-body">
+                <p> الان الرياض فقط </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-5" aria-expanded="false" aria-controls="collapseTwo-5">
+                  ماذا يحدث إذا لم أكن في التوقيع على مربع؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-5" aria-expanded="false">
+              <div class="panel-body">
+                <p> يتم التسليم خلاص ٥ ساعات من طلبك في حين أننا نهدف إلى التسليم نفس الوقت المطلوب ولايمكننا ضمان هذا
+                  وغير قادرين على إعطاء أوقات التسليم محددة.</p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-6" aria-expanded="false" aria-controls="collapseTwo-5">
+                  ماذا يحدث إذا لم أكون موجودفي موقع التسليم ؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-6" aria-expanded="false">
+              <div class="panel-body">
+                <p> أنت لا تحتاج إلى أن تكون في الموقع للتسليم ولكن مندوبنا لن يضع صندوق طلبك إلا إذا كانت هناك تعليمات
+                  تسليم محددة للقيام بذلك. يرجى إعطاء تعليمات مع طلبك في مكان آمن لمغادرة صندوق السمك الخاص بك وكذلك رقم
+                  الهاتف.
+                  نحن سعداء جدا لتقديمها إلى مكان عملك إذا كان ذلك أكثر ملاءمة. منتجاتنا سوف تكون آمنة تماما لمدة تصل
+                  إلى 48 ساعة وتغليفها صحي لن تتغير في هذا الوقت . </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-7" aria-expanded="false" aria-controls="collapseTwo-5">
+                  كيف سيصل طلبي؟
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-7" aria-expanded="false">
+              <div class="panel-body">
+                <p> صندوق الأسماك من يوم السمك الخاص بك هو مربع معزول تماما القابلة لإعادة التدوير مع شرائط المبردة
+                  لضمان وصول المنتج معك في حالة ممتازة</p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-8" aria-expanded="false" aria-controls="collapseTwo-5">
+                  كيف يمكنني تخزين السمك عندما يصل؟
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-8" aria-expanded="false">
+              <div class="panel-body">
+                <p> الأسماك الطازجة - التبريد وتناول الطعام في غضون 3 أيام أو تجميد لمدة تصل إلى 3-4 أشهر.
+                  الكابوريا - من فضلك لا تخزن في الماء لأن هذا سيقتل الكبوريا تخزين في أسفل الثلاجة مغطاة بقطعة قماش
+                  مبللة.
+                  إذا كنت غير راض مع طلبك يجب عليك الاتصال بنا فورا عند استلام المنتج. اتصل إذا كان لديك أي استفسارات أو
+                  تحتاج إلى مزيد من المعلومات، يرجى التواصل معنا عن طريق اي من حساباتنا او عن طريق جوال مدير التنفيذي
+                  0501184998 او على الهاتف المجاني 920008096
+                  نحن نحتفظ بالحق في تغيير أي تفاصيل وأسعار على هذا الموقع في أي وقت ودون إشعار مسبق. وهذا يشمل هذه
+                  الشروط والأحكام. وسوف نكرم أي أمر حقيقي وضعت قبل إجراء هذه التغييرات. تفاصيل الشركة: يوم السمك
+                  للمأكولات البحرية المحدودة رقم السجل التجاري لشركة </p>
+
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-1">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-1" aria-expanded="false" aria-controls="collapseTwo-1">
+                  How can I order?
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-1" aria-expanded="false"
+                 style="height: 0px;">
+              <div class="panel-body">
+                <p> All the means of communication like Whatsapp, our unified number, through the application or on our
+                  website, are available to order by Fish Day.
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-2">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-2" aria-expanded="false" aria-controls="collapseTwo-1">
+                  How to pay?
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-2" aria-expanded="false">
+              <div class="panel-body">
+                <p> We made sure to follow your wishes, we provided paying upon delivery method to insure your order and
+                  it’s validity. </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-3">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-3" aria-expanded="false" aria-controls="collapseTwo-3">
+                  How much does the delivery cost?
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-3" aria-expanded="false">
+              <div class="panel-body">
+                <p> Delivery costs 25 riyals per individual destination, regardless of the number of boxes. </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-4">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-4" aria-expanded="false" aria-controls="collapseTwo-4">
+                  Where is the service location?
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-4" aria-expanded="false">
+              <div class="panel-body">
+                <p> Now only in Riyadh.
+                  If you are not sure you are in the delivery location, please contact us before placing your
+                  order. </p>
+
+              </div>
+            </div>
+          </div>
+          <!---->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-5" aria-expanded="false" aria-controls="collapseTwo-5">
+                  When are the delivery times?
+
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-5" aria-expanded="false">
+              <div class="panel-body">
+                <p>The order is delivered in 5 hours of placing your order while we aim to deliver at the same time of
+                  ordering, but we cannot guarantee this and are unable to give specific delivery times.</p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-6" aria-expanded="false" aria-controls="collapseTwo-5">
+                  What happens if I am not on the delivery site?
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-6" aria-expanded="false">
+              <div class="panel-body">
+                <p>You do not need to be on-site for delivery but our deliveryman will not place your order unless there
+                  are specific delivery instructions to do so. Please give instructions about placing order in a safe
+                  place as well as your phone number.
+                  We are very glad to bring it to your work place if it is more convenient. Our products will be
+                  completely safe and healthy for up to 48 hours. The packaging will help not it to not change at this
+                  time. </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-7" aria-expanded="false" aria-controls="collapseTwo-5">
+                  How will my order arrive?
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-7" aria-expanded="false">
+              <div class="panel-body">
+                <p>Your fish box from Fish Day will be an insulated recyclable box with chilled strips to ensure that the product will arrive to you in perfect condition.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo-5">
+              <h5 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwo-8" aria-expanded="false" aria-controls="collapseTwo-5">
+                  How can I store the fish when it arrives?
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo-8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo-8" aria-expanded="false">
+              <div class="panel-body">
+                <p> Fresh Fish, for refrigeration it is okay to eat it in three days, as for freezing it, it can be freeze for up to 3-4 months.
+                  Crabs - please do not store it in water because this will kill the crab. Store it at the bottom of the refrigerator covered with a damp cloth.
+                  If you are not satisfied with your order, you must contact us immediately upon receipt of the product. Make sure to contact if you have any questions or need more information, please contact us through any of our accounts or by calling our Executive Manager Phone number: 0501184998 or by our free number: 920008096.
+                  We reserve the right to change any details and prices on this site at any time without prior notice. This includes these terms and conditions. We will respect any order placed before making these changes. Company Details: Fish Day for Seafood Co. Ltd. Commercial Registration No. (1010894462)
+                </p>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Content -->

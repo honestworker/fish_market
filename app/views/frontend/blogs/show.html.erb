@@ -1,0 +1,55 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+<div class=" first blog-info text-center">
+  <div class="container ">
+    <div class="slider_info2 ">
+      <h1 class="font_header"><%= t(:blog) %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path 'stars.jpg' %> " alt="">
+
+      </div>
+      <div class="col-md-9">
+        <div class="text-left">
+          <img src="<%= @blog.try(:image).try(:url) %>" class="img-responsive " style="width: 100%; height: 520px;">
+          <h4><%= @blog.title %></h4>
+
+          <ol class="breadcrumb">
+            <li><%= "#{t('author')} : #{@blog.admin.email} " %></li>
+            <li><%= "#{t('date_time')} : #{@blog.created_at} " %> </li>
+          </ol>
+
+          <p><%= @blog.body.html_safe %></p>
+
+          <hr>
+          <h5><%= t(:you_may_like) %></h5>
+          <div class="row">
+
+            <ul class="blog-cont">
+              <% Blog.where.not(id: @blog.id).each do |blog| %>
+                <li class="col-sm-6 first-ele">
+                  <ul>
+                    <%= link_to  blog_path(blog)  do %>
+                    <li>
+                      <img src="<%= blog.try(:image).try(:url) %>" class="img-responsive ">
+
+                    </li>
+                    <li>
+                    <span>
+                      <%= h truncate(blog.title, :length => 45) %>
+                    </span>
+                    </li>
+                  </ul>
+                    <% end %>
+
+                    </li>
+              <% end %>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

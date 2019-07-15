@@ -1,0 +1,37 @@
+<div class="section popular text-center">
+  <h1 class="font_header">Discover </h1>
+  <h2 class="title-xlarge font_header_larg"> POPULAR MENU </h2>
+  <div class="stars">
+    <img src="<%= asset_path('stars.jpg')%>" alt="">
+  </div>
+  <ul class="select">
+    <!--<li class="filter active selected" data-filter="all">Show All</li>-->
+    <li class="filter active selected" data-filter="<% @categories.each do |category| %><% if ! category.name == "other_servers" %> <%= category.name %><% end %> <% end %>">Show All</li>
+    <% @categories.each do |category| %>
+        <li class="filter" data-filter=".<%= category.name %>"><%= category.name %></li>
+    <% end %>
+  </ul>
+  <div id="popular">
+    <section class="gallery" id="latest_projects">
+      <% @products.each do |product| %>
+          <article class="col-sm-3 col-xs-6 project wow  mix <%= product.category.try(:name) %>  wow zoomIn data-wow-duration='1s' data-wow-delay='0.0s'">
+            <div class="row pro">
+              <a data-showsocial="true" class="html5lightbox project_link" data-thumbnail=" <%= product.product_images.first.try(:image).try(:url) %>  " data-group="set1" href="<%= product.product_images.first.try(:image).try(:url) %> "><img src="<%= product.product_images.first.try(:image).try(:url) %> " alt="" class="img-responsive"><span></span>
+                <h3><%= product.name %></h3>
+              </a>
+            </div>
+          </article>
+      <% end %>
+      <% @other_servers.each do |product| %>
+          <article class="col-sm-3 col-xs-6 project wow  mix <%= product.category.try(:name) %>  wow zoomIn data-wow-duration='1s' data-wow-delay='0.0s'">
+            <div class="row pro">
+              <a data-showsocial="true" class="html5lightbox project_link" data-thumbnail=" <%= product.product_images.first.try(:image).try(:url) %>  " data-group="set1" href="<%= product.product_images.first.try(:image).try(:url) %> "><img src="<%= product.product_images.first.try(:image).try(:url) %> " alt="" class="img-responsive"><span></span>
+                <h3><%= product.name %></h3>
+              </a>
+            </div>
+          </article>
+      <% end %>
+    </section>
+  </div>
+
+</div>

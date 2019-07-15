@@ -1,0 +1,100 @@
+<!--<h3 class="text-center">Products for Sale</h3>-->
+
+<!--<div class="row">-->
+<!--<div class="col-xs-6 col-xs-offset-3">-->
+<!--<%# @products.each do |product| %>-->
+<!--<%#= render "product_row", product: product, order_item: @order_item %>-->
+<!--<%# end %>-->
+<!--</div>-->
+<!--</div>-->
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first text-center faq">
+  <div class="container">
+    <div class="slider_info2">
+      <h1 class="font_header"><%= t(:shop) %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path('stars.jpg') %>" alt="">
+      </div>
+    </div>
+
+
+    <% if @sliders.present? %>
+      <div class="container">
+        <div class="testimonials_info">
+          <div class="test">
+            <% @sliders.each do |slider| %>
+              <a href="<%= slider.link %>">
+                <div class="item slider-section">
+                  <img src="<%= slider.try(:image).try(:url) %>" style="width: 100%; height: 520px;">
+                  <div class="carousel-caption">
+                    <h3><%= slider.text %>></h3>
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+
+    <!-- Shop -->
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="row m-10">
+
+          <div class="col-md-9">
+
+            <div class="fixstic">
+              <div class="row pro-view">
+                <div class="clearfix"></div>
+                <!-- end this select -->
+                <% @products.each do |product| %>
+
+                  <div class="col-md-3 col-xs-6">
+                    <div class="product">
+
+                      <div class="imagei">
+                        <a href="<%= product_path(locale: I18n.locale, id: product.id) %>"><img src="<%= product.product_images.first.try(:image).try(:url) %>" alt=""></a>
+
+                        <div class="hoveri" style="text-align: center;">
+                          <%= link_to "<span><i class='fa fa-cart-plus'></i></span>#{t(:add_to_cart)}".html_safe, product, remote: true, style: "display: contents;" %>
+                        </div>
+                      </div>
+                      <a href="<%= product_path(product.id) %>">
+                        <h3><%= product.name&.humanize %></h3>
+                      </a>
+                      <p class="price">
+                        <img src="<%= asset_path('price.png') %>" alt=""><%= product.piece_price %>  <%= t(:SAR) %>
+                        <span><%= t(:price_per_piece) %></span></p>
+                      <p class="price">
+                        <img src="<%= asset_path('price.png') %>" alt=""><%= product.kilo_price %>  <%= t(:SAR) %>
+                        <span><%= t(:price_per_kilo) %></span></p>
+
+                    </div>
+                  </div>
+                  <!-- end this col -->
+
+
+                <% end %>
+
+
+              </div>
+              <!-- end this row -->
+            </div>
+            <!-- end this fixstic -->
+          </div>
+          <!-- end this col-md-9 -->
+        </div>
+        <!-- end this row -->
+      </div>
+    </div>
+    <!-- Shop -->
+  </div>
+</div>
+<!-- End Content -->
+<%= render "/frontend/products/modal" %>

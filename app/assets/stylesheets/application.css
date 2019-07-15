@@ -1,0 +1,17 @@
+/*
+ * require bootstrap.min
+ *= require font-awesome.min
+ *= require animate
+ *= require owl.carousel
+ *= require owl.theme
+ *= require toastr
+ *= require bootsnav
+ *= require navigation
+ *= require settings
+ *= require products
+ *= require carts
+ * require style
+ *= require responsive
+ *  require_tree ./frontend
+ * require_self
+ */

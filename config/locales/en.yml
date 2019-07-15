@@ -1,0 +1,432 @@
+---
+en:
+  SAR: SAR
+  about_us: About us
+  total_greater_than_100: 'The total cost must exceed 100 Ryal'
+  wait_your_order_to_finish: 'Wait your order to finish'
+  activerecord:
+    attributes:
+      admin:
+        email: email
+        password: password
+        password_confirmation: password_confirmation
+      blog:
+        admin: author
+        body: body
+        image: image
+        title: title
+      category:
+        description: Description
+        name: Name
+        products: Products
+      other_service:
+        description: Description
+        name: Name
+        phone: Phone
+      meter:
+        percentage: percentage
+      order:
+        address: address
+        address_url: address url
+        notes: notes
+        order_items: order items
+        print: print
+        status: status
+        subtotal: subtotal
+        tax: tax
+        total: total
+        user_full_name: full name
+        user_phone_number: phone number
+      order_info:
+        address: address
+      product:
+        category: Category
+        desc: Description
+        kilo_price: Kilo Price
+        name: Name
+        piece_price: Piece Price
+        promotion_kilo_price: Promotion kilo Price
+        promotion_piece_price: Promotion piece Price
+        quantity: Quantity
+        quantity_type: Quantity Type
+        slicing_type: slicing type
+      quantity:
+        product: product
+        quantity: quantity
+        quantity_type: quantity_type
+        unit: unit
+      slider:
+        image: image
+        link: link
+        text: text
+      team_member:
+        image: الصورة
+        job_title: المسي الوظيفي
+        name: الأسم
+        order: الترتيب في الظهور
+        summary: كلمة عنه
+      user:
+        email: email
+        is_mobile_verified: is_mobile_verified
+        mobile_number: mobile_number
+        password: password
+        password_confirmation: password_confirmation
+        remember_me: remember me
+    errors:
+      messages:
+        record_invalid: 'record_invalid: %{errors}'
+        restrict_dependent_destroy:
+          has_many: cant delete this record %{record}
+          has_one: cant delete this record %{record}
+    models:
+      about: About
+      admin: Admins
+      blog: blog
+      category: Categories
+      other_service: Other Services
+      city: cities
+      incoming_store: Incoming Stores
+      meter: Meters
+      order: Orders
+      order_info: Order Info
+      order_item: Order Items
+      order_status: Order Status
+      product: Products
+      product_image: Product Image
+      quantity: Quantities
+      slider: sliders
+      team_member: Team members
+      user: Users
+  add_to_cart: Add to cart
+  admin:
+    loading: Loading
+  arabic: ع
+  attributes:
+    created_at: created_at
+    id: id
+    updated_at: updated_at
+  author: Author
+  blog: Blog
+  boat_to_home: Boat to home
+  boxes: Boxes
+  boxes_body: Eco-friendly fish boxes made especially for this product that keep the fish cooled. Experience a great taste of the sea, without leaving your home! Delicious fresh fish boxes are delivered directly to your door in boxes carefully, with everything from your family's favorites of our Fish Day Store.
+  cart:
+    actions: Actions
+    cart: Cart
+    checkout: Proceed to checkout
+    image: Image
+    no_items: There are no items in your shopping cart.
+    price: Price
+    product_name: Product Name
+    quantity: Quantity
+    remove: Remove Product
+    remove_products: Remove All Products
+    sure_delete: Are you sure you wish to delete the product %{product_name} from your cart?
+    sure_delete_all: Are you sure you wish to delete all products from your cart?
+    total: Total
+    update_quantity: Update Quantiy
+  cart_is_empty: Cart is empty
+  comercial_number: Comercial number
+  confirm: confirm
+  contacts: contact us
+  created_successfully: Created successfully
+  date:
+    abbr_day_names: '["الأحد", "الإثنين", "الثّلاثاء", "الأربعاء", "الخميس", "الجمعة", "السّبت"]'
+    abbr_month_names: '[nil, "ينا", "فبر", "مار", "أبر", "ماي", "يون", "يول", "أغس", "سبت", "أكت", "نوف", "ديس"]'
+    day_names: '["الأحد", "الإثنين", "الثّلاثاء", "الأربعاء", "الخميس", "الجمعة", "السّبت"]'
+    formats:
+      default: "%d-%m-%Y"
+      long: "%e %B، %Y"
+      short: "%e %b"
+    month_names: '[nil, "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]'
+    order: "[:day, :month, :year]"
+  date_time: At
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: حوالي %{count} ساعات
+        many: حوالي %{count} ساعة
+        one: حوالي ساعة واحدة
+        other: حوالي %{count} ساعة
+        two: حوالي ساعتان
+        zero: حوالي صفر ساعات
+      about_x_months:
+        few: حوالي %{count} أشهر
+        many: حوالي %{count} شهر
+        one: حوالي شهر واحد
+        other: حوالي %{count} شهر
+        two: حوالي شهران
+        zero: حوالي صفر أشهر
+      about_x_years:
+        few: حوالي %{count} سنوات
+        many: حوالي %{count} سنة
+        one: حوالي سنة
+        other: حوالي %{count} سنة
+        two: حوالي سنتان
+        zero: حوالي صفر سنوات
+      almost_x_years:
+        few: ما يقرب من %{count} سنوات
+        many: ما يقرب من %{count} سنة
+        one: تقريبا سنة واحدة
+        other: ما يقرب من %{count} سنة
+        two: ما يقرب من سنتين
+        zero: ما يقرب من صفر سنوات
+      half_a_minute: نصف دقيقة
+      less_than_x_minutes:
+        few: أقل من %{count} دقائق
+        many: أقل من %{count} دقيقة
+        one: أقل من دقيقة
+        other: أقل من %{count} دقيقة
+        two: أقل من دقيقتان
+        zero: أقل من صفر دقائق
+      less_than_x_seconds:
+        few: أقل من %{count} ثوان
+        many: أقل من %{count} ثانية
+        one: أقل من ثانية
+        other: أقل من %{count} ثانية
+        two: أقل من ثانيتان
+        zero: أقل من صفر ثواني
+      over_x_years:
+        few: أكثر من %{count} سنوات
+        many: أكثر من %{count} سنة
+        one: أكثر من سنة
+        other: أكثر من %{count} سنة
+        two: أكثر من سنتين
+        zero: أكثر من صفر سنوات
+      x_days:
+        few: "%{count} أيام"
+        many: "%{count} يوم"
+        one: يوم واحد
+        other: "%{count} يوم"
+        two: يومان
+        zero: صفر أيام
+      x_minutes:
+        few: "%{count} دقائق"
+        many: "%{count} دقيقة"
+        one: دقيقة واحدة
+        other: "%{count} دقيقة"
+        two: دقيقتان
+        zero: صفر دقائق
+      x_months:
+        few: "%{count} أشهر"
+        many: "%{count} شهر"
+        one: شهر واحد
+        other: "%{count} شهر"
+        two: شهران
+        zero: صفر أشهر
+      x_seconds:
+        few: "%{count} ثوان"
+        many: "%{count} ثانية"
+        one: ثانية واحدة
+        other: "%{count} ثانية"
+        two: ثانيتان
+        zero: صفر ثواني
+    prompts:
+      day: اليوم
+      hour: ساعة
+      minute: دقيقة
+      month: الشهر
+      second: ثانية
+      year: السنة
+  deleted_successfully: Deleted successfully
+  delivery: Delivery
+  delivery_body: Best Seafood, Best Service, Best Tip” This is what we always look for. We have been offering the best quality seafood directly to the homes of our customers in Riyadh. And looking forward to serve all over Saudi Arabia. Any person in any area would like to communicate with one of our customer service by phone before ordering. They will direct your attention to any seasonal specials and will be happy to advice you on a selection of fish to suit your needs.
+  delivery_time: delivery will take around 12 hours
+  email: email
+  enumerize:
+    order:
+      status:
+        cart: cart
+        completed: completed
+        on_the_way: on the way
+        pending: pending
+        preparing: preparing
+    order_item:
+      quantity_type:
+        kg: Killo
+        kilo: kilo
+        piece: Piece
+      slicing_type:
+        clean: Clean
+        sengary: Grilled ( Sengary )
+        with_out_clean: With Out Clean
+    product:
+      quantity_type:
+        kilo: Kilo
+        piece: Piece
+  errors:
+    format: "%{message}"
+    messages:
+      accepted: you have to accept %{attribute}
+      blank: لا يمكن أن يكون محتوى %{attribute} فارغاً
+      confirmation: محتوى %{attribute} لا يتوافق مع %{attribute}
+      empty: لا يمكن أن يكون محتوى %{attribute} فارغاً
+      equal_to: يجب أن يساوي طول %{attribute} %{count}
+      even: يجب أن يكون عدد %{attribute} زوجياً
+      exclusion: حقل %{attribute} محجوز
+      greater_than: ميجب أن يكون عدد %{attribute} أكبر من %{count}
+      greater_than_or_equal_to: يجب أن يكون عدد %{attribute} أكبر أو يساوي %{count}
+      inclusion: "%{attribute} غير وارد في القائمة"
+      invalid: محتوى %{attribute} غير صالح
+      less_than: يجب أن يكون عدد %{attribute} أصغر من %{count}
+      less_than_or_equal_to: يجب أن يكون عدد %{attribute} أصغر أو  يساوي %{count}
+      not_a_number: يجب أن يكون محتوى %{attribute} رقماً
+      not_an_integer: يجب أن يكون عدد %{attribute} عدد صحيحاً
+      odd: يجب أن يكون عدد %{attribute} عدداً فردياً
+      other_than:
+        few: طول %{attribute} يجب ألاّ يكون %{count} أحرف
+        many: طول %{attribute} يجب ألاّ يكون %{count} حرفاً
+        one: طول %{attribute} يجب ألاّ يكون حرفاً واحداً
+        other: طول %{attribute} يجب ألاّ يكون %{count} حرفاً
+        two: طول %{attribute} يجب ألاّ يكون حرفان
+        zero: طول %{attribute} يجب ألاّ يكون صفر حرف
+      present: يجب ترك حقل %{attribute} فارغاً
+      taken: حقل %{attribute} محجوز مسبقاً
+      too_long:
+        few: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حروف)
+        many: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حرف)
+        one: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو حرف واحد)
+        other: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو %{count} حرف)
+        two: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو حرفان)
+        zero: محتوى %{attribute} أطول من اللّازم (الحد الأقصى هو ولا حرف)
+      too_short:
+        few: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حروف)
+        many: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حرف)
+        one: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو حرف واحد)
+        other: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو %{count} حرف)
+        two: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو حرفان)
+        zero: محتوى %{attribute} أقصر من اللّازم (الحد الأدنى هو ولا حرف)
+      wrong_length:
+        few: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} أحرف)
+        many: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} حرف)
+        one: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون حرف واحد)
+        other: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون %{count} حرف)
+        two: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون حرفان)
+        zero: طول %{attribute} غير مطابق للحد المطلوب (يجب أن يكون ولا حرف)
+    template:
+      body: يُرجى التحقّق من الحقول التّالية:%{attribute}
+      header:
+        few: ليس بالامكان حفظ %{model} لسبب وجود %{count} أخطاء.
+        many: ليس بالامكان حفظ %{model} لسبب وجود %{count} خطأ.
+        one: ليس بالامكان حفظ %{model} لسبب وجود خطأ واحد.
+        other: ليس بالامكان حفظ %{model} لسبب وجود %{count} خطأ.
+        two: ليس بالامكان حفظ %{model} لسبب وجود خطئان.
+        zero: ليس بالامكان حفظ %{model} لسبب ولا خطأ.
+  faqs: FAQ
+  find_us_on: You can order from our mobile app.
+  first_fish_website: First fish website
+  fish_day: Fish day
+  footer_body: Fish Day offers only fresh fish from nearby and distant waters and everywhere in between. Seafood is our passion, our message is fresh, quality is our commitment.
+  go_to_home: Go to home page
+  helpers:
+    select:
+      prompt: You have to choose
+    submit:
+      create: "%{model} Create"
+      submit: "%{model} Submit"
+      update: "%{model} Update"
+  home: Home
+  inclusion_1_100: Must be between 0..100
+  login: Login
+  logout: Logout
+  main_address: 'Address: Saudi Arabia ، AlRiadyh'
+  main_mobile: 'Mobile: 920008096 | 0558308096'
+  meet_our_team: Meet our team
+  meet_our_team_title: We are considered as a close family due to our relating thoughts and the strength of determination to work in one team, which aims to develop the product and reach to the top, which every successful person aims. Our team is a Saudi specialist in fish and marine including a fisherman and a chef.
+  not_found: Not found
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: '2'
+        separator: "."
+        significant: Significant
+        strip_insignificant_zeros: Strip insignificant zeros
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: '3'
+      separator: "."
+      significant: Significant
+      strip_insignificant_zeros: Strip insignificant zeros
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: billion
+          million: million
+          quadrillion: quadrillion
+          thousand: thousand
+          trillion: trillion
+          unit: Unit
+      format:
+        delimiter: Delimiter
+        precision: '3'
+        significant: 'true'
+        strip_insignificant_zeros: 'true'
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            few: Bytes
+            many: Bytes
+            one: Byte
+            other: Bytes
+            two: Bytes
+            zero: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: Delimiter
+        format: "%n%"
+    precision:
+      format:
+        delimiter: Delimiter
+  offers: العروض
+  online_order: If you have not asked for fresh fish online before then it would be impossible
+  online_order_body: We can offer fresh fish home delivery because we are 100% sure that we have developed a system that delivers fresh fish and seafood directly to your door.
+  other_info: Other info
+  other_services: Other services
+  our_lab: Our lab
+  our_lab_body: Our lab body
+  our_lab_body_html: 'We have prepared this place with all care and health certificates for everyone who works there.</br> We have innovative devices to clean fish and package it to receive the same quality </br>and temperature that makes it fresh and clean.
+
+'
+  packing: Packing
+  payment_methods: برجاء العلم ان وسيلة الدفع هي الدفع عند الأستلام و ايضا يتوفر جهاز سحب من بطاقات الصراف الالي.
+  price_per_kilo: Price per kilo
+  price_per_piece: Price per piece
+  print: اطبع
+  read_more: read more
+  shop: Shop
+  similar: Similar
+  support:
+    array:
+      last_word_connector: " و "
+      two_words_connector: " و "
+      words_connector: " ، "
+  tax_number: Tax number
+  tax_rate: VAT
+  text:
+    invalid_api_key: Invalid api key
+  thanks_for_your_purchase: Thanks for your purchase
+  time:
+    am: am
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      long: "%d %B, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
+  total_after_tax: Total
+  updated_successfully: Updated successfully
+  verified_successfully: Verified Successfully
+  verify_your_account: You have to verify your account
+  working_hours: Working hours from 7 am to 7 pm
+  wrong_code: wrong code
+  you_may_like: You can read also..
+  your_order_number: order number
+  your_order_status: order status

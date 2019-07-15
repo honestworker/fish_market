@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FishDay | يوم السمك</title>
+    <%= csrf_meta_tags %>
+    <meta name="google-site-verification" content="qT7n1kQdj1LNADT4_66rXvrcopckdvf-6iWcAR-bv1c" />
+    <% if I18n.locale == :ar %>
+        <%= stylesheet_link_tag  'bootstrap.rtl', media: 'all', 'data-turbolinks-track' => 'reload' %>
+        <%= stylesheet_link_tag  'style.rtl', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <% else %>
+        <%= stylesheet_link_tag  'bootstrap.min', media: 'all', 'data-turbolinks-track' => 'reload' %>
+        <%= stylesheet_link_tag  'style', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  </head>
+
+  <body>
+    <!--<h1><%#= link_to "My Store", frontend_root_path %></h1>-->
+    <!--<h1 class="cart-text"><%#= render 'layouts/cart_text' %></h1>-->
+  	<!--<p><%#= link_to "My orders", orders_path %></p>-->
+    
+    <!-- Start Top Header -->
+    <%= render 'frontend/home/header' %>
+    <!-- Start Top Header -->
+
+
+    <%= yield %>
+
+    <!-- Start Footer -->
+    <%= render 'frontend/home/footer' %>
+    <!-- End Footer -->
+
+    <!-- Start Scroll -->
+    <section id="scroll-top" style="display: block;">
+      <i class="fa fa-angle-double-up fa-3x"></i>
+    </section>
+    <!-- End Scroll -->
+
+    <!-- Start Loading -->
+    <div id="page-preloader"><span class="spinner"></span></div>
+    <!-- End Loading -->
+    <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |f| %>
+          <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+            toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+      </script>
+    <% end %>
+
+    <!-- Twitter universal website tag code -->
+    <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o09ul');
+    twq('track','PageView');
+    </script>
+    <!-- End Twitter universal website tag code -->
+  </body>
+</html>

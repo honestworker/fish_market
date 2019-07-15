@@ -1,0 +1,34 @@
+<%= render :layout => '/frontend/abouts/navigation' do %>
+  <%= render 'frontend/home/navlinks' %>
+<% end %>
+
+<!-- Start Content -->
+<div class=" first blog-info text-center">
+  <div class="container ">
+    <div class="slider_info2 ">
+      <h1 class="font_header"><%= t(:other_services) %> </h1>
+      <div class="stars">
+        <img src="<%= asset_path 'stars.jpg' %> " alt="">
+
+      </div>
+      <div class="col-md-9">
+        <div class="text-left">
+          <% @services.each do |service| %>
+            <% if service.service_images.present? %>
+              <img src="<%= service.service_images.first.try(:image).try(:url) %>" class="img-responsive " style="width: 570px; height: 320px;">
+            <% end %>
+
+            <h4><%= service.name %></h4>
+
+            <p><%= service.description&.html_safe %></p>
+            <p>‫‫رقم‬ التواصل‬ <%= service.phone&.html_safe %></p>
+
+            <hr>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Content -->

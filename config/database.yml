@@ -1,0 +1,28 @@
+
+default: &default
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+
+development:
+  <<: *default
+  adapter: sqlite3
+  database: db/development.sqlite3
+
+test:
+  <<: *default
+  adapter: sqlite3
+  database: fish_market_test
+  host: localhost
+
+production:
+  <<: *default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  # database: appname_production
+  pool: 5
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  database: fish_market_production

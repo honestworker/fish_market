@@ -1,0 +1,35 @@
+
+<!-- Start Navigation -->
+<div class="inner">
+  <nav class="navbar navbar-default bootsnav">
+    <div class="container">
+      <!-- Start Header Navigation -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#brand"><img src="<%= asset_path 'logo.png'%>" class="logo" alt=""></a>
+      </div>
+      <!-- End Header Navigation -->
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <%= yield %>
+
+      <!-- /.navbar-collapse -->
+
+      <!-- Start Top Search -->
+      <div class="top-search">
+        <div class="container">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Search" />
+            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Search -->
+    </div>
+  </nav>
+</div>
+
+<!-- End Navigation -->
