@@ -9,3 +9,15 @@
 		color: #fff;
 	}
 }
+
+@media (max-width: 767px) {
+	.row.pro-view .col-xs-6:nth-child(2n) {
+		clear: left;
+	}
+}
+
+@media (min-width: 768px) {
+	.row.pro-view .col-md-3:nth-child(4n+2) {
+		clear: left;
+	}
+}

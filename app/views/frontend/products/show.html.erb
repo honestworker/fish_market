@@ -5,7 +5,7 @@
 <div class=" first ">
   <div class="container">
     <div class="slider_info2 text-center">
-      <h1 class="font_header"><%= @product.name.humanize %> </h1>
+      <h1 class="font_header"><%= @product.name %> </h1>
       <div class="stars">
         <img src="<%= asset_path('stars.jpg') %>" alt="">
       </div>
@@ -98,7 +98,7 @@
                 <div class="imagei">
                   <a href="<%= product_path(locale: I18n.locale, id: product.id) %>"><img src="<%= product.product_images.first.try(:image).try(:url) %>" alt=""></a>
                   <a href="<%= product_path(locale: I18n.locale, id: product.id) %>">
-                    <h3><%= product.name.humanize %></h3>
+                    <h3><%= product.name %></h3>
                   </a>
                   <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= product.piece_price %>
                     <%= t(:SAR) %><span><%= t(:price_per_piece) %></span></p>

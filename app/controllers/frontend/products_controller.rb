@@ -8,7 +8,7 @@ class Frontend::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.friendly.find(params[:id])
+    @product = Product.find(params[:id])
     @products = Product.where(category_id: @product.category.id).where.not(id: @product.id)
     respond_to do |format|
       format.html

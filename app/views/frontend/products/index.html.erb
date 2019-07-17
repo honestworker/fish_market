@@ -47,7 +47,7 @@
       <div class="container">
         <div class="row m-10">
 
-          <div class="col-md-9">
+          <div class="col-md-12">
 
             <div class="fixstic">
               <div class="row pro-view">
@@ -62,7 +62,7 @@
                         <a href="<%= product_path(locale: I18n.locale, id: product.id) %>"><img src="<%= product.product_images.first.try(:image).try(:url) %>" alt=""></a>
 
                         <div class="hoveri" style="text-align: center;">
-                          <%= link_to "<span><i class='fa fa-cart-plus'></i></span>#{t(:add_to_cart)}".html_safe, product, remote: true, style: "display: contents;" %>
+                          <%= link_to "<span><i class='fa fa-cart-plus'></i></span>#{t(:add_to_cart)}".html_safe, product_path(product.id), remote: true, style: "display: contents;" %>
                         </div>
                       </div>
                       <a href="<%= product_path(product.id) %>">
