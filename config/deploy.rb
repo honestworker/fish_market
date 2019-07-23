@@ -3,17 +3,17 @@ lock "~> 3.10.1"
 # load 'lib/capistrano/tasks/seed'
 
 # server '45.33.124.87', roles: [:web, :app, :db], primary: true
-server '162.216.17.244', user: 'mohamed', roles: [:web, :app, :db], primary: true
+server '162.216.17.244', user: 'mr7elmi', roles: [:web, :app, :db], primary: true
 
-set :user, 'mohamed'
+set :user, 'mr7elmi'
 set :application, 'fish_market'
-set :repo_url, "git@bitbucket.org:MohamedHegab992/fish_market.git"
+set :repo_url, "git@github.com:mr7elmi/fish_market.git"
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.5.0'
+set :rbenv_ruby, '2.5.1'
 set :console_env, :production
-set :console_user, 'mohamed'
+set :console_user, 'mr7elmi'
 set :console_shell, '/bin/bash'
-# set :rbenv_path, '/home/mohamed/.rbenv/'
+# set :rbenv_path, '/home/mr7elmi/.rbenv/'
 
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 append :rbenv_map_bins, 'puma', 'pumactl'
@@ -38,7 +38,7 @@ set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { user: 'mohamed'}
+set :ssh_options,     { user: 'mr7elmi'}
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord

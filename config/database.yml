@@ -26,3 +26,4 @@ production:
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASSWORD'] %>
   database: fish_market_production
+

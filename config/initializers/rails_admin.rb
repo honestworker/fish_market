@@ -28,7 +28,7 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index  do
       except ['About']
-    end                         # mandatory
+    end                           # mandatory
     new do
       except [Order, User]
     end
@@ -41,12 +41,7 @@ RailsAdmin.config do |config|
     end
     show_in_app
 
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
-
   end
-
 
   config.model 'OrderItem' do
     visible false
@@ -63,7 +58,8 @@ RailsAdmin.config do |config|
   config.navigation_static_links = {
     'About' => '/admin/about/1/edit'
   }
-  config.included_models = [ "ServiceImage", "OtherService", "TeamMember", "Blog", "City","Slider", "Meter", "Admin", "Category", "Product", "Order", "OrderItem","ProductImage","Quantity","IncomingStore","About"]
+  
+  config.included_models = [ "OtherService", "TeamMember", "Blog", "City","Slider", "Meter", "Admin", "Category", "Product", "Order", "OrderItem","ProductImage","Quantity","IncomingStore","About"]
 
 end
 

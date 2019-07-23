@@ -81,10 +81,10 @@ en:
     models:
       about: About
       admin: Admins
-      blog: blog
+      blog: Blog
       category: Categories
       other_service: Other Services
-      city: cities
+      city: Cities
       incoming_store: Incoming Stores
       meter: Meters
       order: Orders
@@ -94,8 +94,8 @@ en:
       product: Products
       product_image: Product Image
       quantity: Quantities
-      slider: sliders
-      team_member: Team members
+      slider: Sliders
+      team_member: Team Members
       user: Users
   add_to_cart: Add to cart
   admin:

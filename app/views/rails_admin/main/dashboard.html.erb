@@ -1,0 +1,262 @@
+
+<h4>Orders</h4>
+
+<% @orders = Order.order(created_at: :desc).last(10) %>
+
+<% if I18n.locale == :en %>
+    <% language_url = '?locale=en' %>
+    <span><%= link_to t(:show_all), '/admin/order/?locale=en', class: "btn btn-primary" %></span>
+    <span style="float:right"><%= @orders.length %> <%= t(:order) %></span>
+<% else %>
+    <% language_url = '?locale=ar' %>
+    <span><%= link_to t(:show_all), '/admin/order/?locale=ar', class: "btn btn-primary" %></span>
+    <span style="float:left"><%= t(:order) %> <%= @orders.length %></span>
+<% end %>
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th class="header pjax  id_field integer_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=id" rel="tooltip" title="">Id</th>
+            <th class="header pjax  subtotal_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=subtotal" rel="tooltip" title="">Subtotal</th>
+            <th class="header pjax  tax_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=tax" rel="tooltip" title="">Tax</th>
+            <th class="header pjax  total_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=total" rel="tooltip" title="">Total</th>
+            <th class="header pjax  created_at_field datetime_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=created_at" rel="tooltip" title="">Created_at</th>
+            <th class="header pjax  updated_at_field datetime_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=updated_at" rel="tooltip" title="">Updated_at</th>
+            <th class="other right shrink">...</th>
+            <th class="last shrink"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @orders.each do |order_item| %>
+        <tr class="order_row ">
+            <td class="id_field integer_type" title="<%= order_item.id%>"><%= order_item.id%></td>
+            <td class="subtotal_field decimal_type" title="<%= order_item.subtotal %>"><%= order_item.subtotal %></td>
+            <td class="tax_field decimal_type" title="<%= order_item.tax %>"><%= order_item.tax %></td>
+            <td class="total_field decimal_type" title="<%= order_item.total %>"><%= order_item.total %></td>
+            <td class="created_at_field datetime_type" title="<%= order_item.created_at %>"><%= order_item.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+            <td class="updated_at_field datetime_type" title="<%= order_item.updated_at %>"><%= order_item.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+            <td class="other right"><a class="pjax" href="/admin/order<%= language_url %>&amp;model_name=order&amp;set=<%= order_item.id%>">...</a></td>
+
+            <td class="last links">
+                <ul class="inline list-inline">
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                        <a class="pjax" href="/admin/order/<%= order_item.id%><%= language_url %>">
+                        <i class="icon-info-sign"></i>
+                        <span style="display:none">Show</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                        <a class="pjax" href="/admin/order/<%= order_item.id%>/edit<%= language_url %>">
+                        <i class="icon-pencil"></i>
+                        <span style="display:none">Edit</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                        <a class="pjax" href="/admin/order/<%= order_item.id%>/delete<%= language_url %>">
+                        <i class="icon-remove"></i>
+                        <span style="display:none">Delete</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                        <a class="" href="/admin/order/<%= order_item.id%>/show_in_app<%= language_url %>">
+                        <i class="icon-eye-open"></i>
+                        <span style="display:none">Show in app</span>
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<h4>Products</h4>
+<% @products = Product.order(created_at: :desc).last(10) %>
+
+<% if I18n.locale == :en %>
+    <span style="padding-right: 10px"><%= link_to t(:show_all), '/admin/product/?locale=en', class: "btn btn-primary" %></span>
+    <span><%= link_to t(:add_new), '/admin/product/new/?locale=en', class: "btn btn-primary" %></span>
+    <span style="float:right"><%= @products.length %> Products</span>
+<% else %>
+    <span style="padding-right: 10px"><%= link_to t(:show_all), '/admin/product/?locale=ar', class: "btn btn-primary" %></span>
+    <span><%= link_to t(:add_new), '/admin/product/new/?locale=ar', class: "btn btn-primary" %></span>
+    <span style="float:left">Products <%= @products.length %></span>
+<% end %>
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th class="  name_field string_type" rel="tooltip" title="">Name</th>
+            <th class="header pjax  piece_price_field decimal_type" data-href="/admin/product?<%= language_url %>&amp;model_name=product&amp;sort=piece_price" rel="tooltip" title="">Piece Price</th>
+            <th class="header pjax  kilo_price_field decimal_type" data-href="/admin/product?<%= language_url %>&amp;model_name=product&amp;sort=kilo_price" rel="tooltip" title="">Kilo Price</th>
+            <th class="header pjax  category_field belongs_to_association_type" data-href="/admin/product?<%= language_url %>&amp;model_name=product&amp;sort=category" rel="tooltip" title="">Category</th>
+            <th class="header pjax  promotion_kilo_price_field decimal_type" data-href="/admin/product?<%= language_url %>&amp;model_name=product&amp;sort=promotion_kilo_price" rel="tooltip" title="">Promotion kilo Price</th>
+            <th class="header pjax  promotion_piece_price_field decimal_type" data-href="/admin/product?<%= language_url %>&amp;model_name=product&amp;sort=promotion_piece_price" rel="tooltip" title="">Promotion piece Price</th>
+            <th class="last shrink"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product_item| %>
+        <tr class="product_row ">
+            <td class="name_field string_type" title="<%= product_item.name.humanize %>"><%= product_item.name.humanize %></td>
+            <td class="piece_price_field decimal_type" title="<%= product_item.piece_price %>"><%= product_item.piece_price %></td>
+            <td class="kilo_price_field decimal_type" title="<%= product_item.kilo_price %>"><%= product_item.kilo_price %></td>
+            <% if product_item.category.nil? || product_item.category == 0 %>
+            <td class="category_field belongs_to_association_type" title=""></td>
+            <% else %>
+            <td class="category_field belongs_to_association_type" title="<%= product_item.category.name %>"><a class="pjax" href="/admin/category/<%= product_item.category.id %><%= language_url %>"><%= product_item.category.name %></a></td>
+            <% end %>
+            <td class="promotion_kilo_price_field decimal_type" title="<%= product_item.promotion_kilo_price %>"><%= product_item.promotion_kilo_price %></td>
+            <td class="promotion_piece_price_field decimal_type" title="<%= product_item.promotion_piece_price %>"><%= product_item.promotion_piece_price %></td>
+            <td class="last links">
+                <ul class="inline list-inline">
+                    <li title="Show" rel="tooltip" class="icon show_member_link ">
+                        <a class="pjax" href="/admin/product/<%= product_item.id %><%= language_url %>">
+                        <i class="icon-info-sign"></i>
+                        <span style="display:none">Show</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Edit" rel="tooltip" class="icon edit_member_link ">
+                        <a class="pjax" href="/admin/product/<%= product_item.id %>/edit<%= language_url %>">
+                        <i class="icon-pencil"></i>
+                        <span style="display:none">Edit</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Delete" rel="tooltip" class="icon delete_member_link ">
+                        <a class="pjax" href="/admin/product/<%= product_item.id %>/delete<%= language_url %>">
+                        <i class="icon-remove"></i>
+                        <span style="display:none">Delete</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
+                        <a class="" href="/admin/product/<%= product_item.id %>/show_in_app<%= language_url %>">
+                        <i class="icon-eye-open"></i>
+                        <span style="display:none">Show in app</span>
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<h4>Models</h4>
+
+<% max_count = 0 %>
+<% @abstract_models.each do |list_model| %>
+<% if max_count < list_model.count() %>
+<% max_count = list_model.count() %>
+<% end %>
+<% end %>
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th class="shrink model-name">Model name</th>
+            <th class="shrink last-created">Last created</th>
+            <th class="records">Records</th>
+            <th class="shrink controls"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @abstract_models.each do |list_model| %>
+
+        <% list_count = list_model.count() %>
+        <% if max_count == 0 %>
+            <% list_count_percent = 0 %>
+        <% else %>
+            <% list_count_percent = list_count.to_f * 100 / max_count %>
+            <% if list_count > 0 && (list_count_percent < list_count.to_s.length * 2.2) %>
+            <% list_count_percent = list_count_percent + list_count.to_s.length * 2.2 %>
+            <% end %>
+        <% end %>
+
+        <% list_model_item = list_model.new %>
+        <% list_model_name = list_model_item.class.name.underscore.humanize %>
+        <% list_model_slug = list_model_name.downcase.strip.gsub(' ', '_').gsub(/[^\w-]/, '') %>
+        <% list_model_name = 'activerecord.models.' + list_model_slug %>
+
+        <% if list_model_slug == 'admin' %>            
+        <% last_list_model_item = Admin.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'blog' %>
+        <% last_list_model_item = Blog.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'category' %>
+        <% last_list_model_item = Category.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'city' %>
+        <% last_list_model_item = City.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'incoming_store' %>
+        <% last_list_model_item = IncomingStore.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'meter' %>
+        <% last_list_model_item = Meter.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'order' %>
+        <% last_list_model_item = Order.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'other_service' %>
+        <% last_list_model_item = OtherService.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'product' %>
+        <% last_list_model_item = Product.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'slider' %>
+        <% last_list_model_item = Slider.order(created_at: :desc).last(1) %>
+        <% elsif list_model_slug == 'team_member' %>
+        <% last_list_model_item = TeamMember.order(created_at: :desc).last(1) %>
+        <% end %>
+
+        <tr class="odd link <%= list_model_slug %>_links" data-link="/admin/<%= list_model_slug %><%= language_url %>">
+            <td>
+                <span class="show"><a class="pjax" href="/admin/<%= list_model_slug %><%= language_url %>"><%= t(list_model_name) %></a></span>
+            </td>
+            <td>
+                <% if list_count > 0 %>
+                    <%= distance_of_time_in_words(Time.new, last_list_model_item[0].created_at.to_datetime) %> ago
+                <% end %>
+
+            </td>
+            <td>
+                <% if list_count_percent == 0 %>
+                    <div class="progress progress-" style="margin-bottom:0px">
+                        <div class="animate-width-to progress-bar progress-bar-" data-animate-length="20" data-animate-width-to="2%" style="width: 2%;">0</div>
+                    </div>
+                <% elsif list_count_percent == 100 %>
+                    <div class="false progress progress-danger" style="margin-bottom:0px">
+                        <div class="animate-width-to progress-bar progress-bar-danger" data-animate-length="2000" data-animate-width-to="100%" style="width: 2%;"><%= list_count %></div>
+                    </div>
+                <% else %>
+                    <div class="false progress progress-success" style="margin-bottom:0px">
+                        <div class="animate-width-to progress-bar progress-bar-success" data-animate-length="760" data-animate-width-to="<%= list_count_percent %>%" style="width: 2%;"><%= list_count %></div>
+                    </div>
+                <% end %>
+            </td>
+            <td class="links">
+                <ul class="inline list-inline">
+                    <li title="List" rel="tooltip" class="icon index_collection_link ">
+                        <a class="pjax" href="/admin/<%= list_model_slug %><%= language_url %>">
+                        <i class="icon-th-list"></i>
+                        <span style="display:none">List</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Add new" rel="tooltip" class="icon new_collection_link ">
+                        <a class="pjax" href="/admin/<%= list_model_slug %>/new?<%= language_url %>">
+                        <i class="icon-plus"></i>
+                        <span style="display:none">Add new</span>
+                        </a>
+                    </li>
+                    
+                    <li title="Export" rel="tooltip" class="icon export_collection_link ">
+                        <a class="pjax" href="/admin/<%= list_model_slug %>/export?<%= language_url %>">
+                        <i class="icon-share"></i>
+                        <span style="display:none">Export</span>
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

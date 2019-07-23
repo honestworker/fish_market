@@ -26,3 +26,6 @@
 .idea/*
 public/system/*
 .env
+
+vendor/assets/*
+public/assets/*
