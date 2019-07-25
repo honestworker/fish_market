@@ -43,7 +43,7 @@ class Order < ApplicationRecord
 
   ### Validations
   validates :tax, :subtotal, numericality: true
-  validates :total, numericality: { greater_than: 100 }, if: :not_cart?
+  #validates :total, numericality: { greater_than: 100 }, if: :not_cart?
 
   def not_cart?
     status != 0
@@ -52,14 +52,43 @@ class Order < ApplicationRecord
   scope :last_incomplete_order, -> {where.not(status: 'delivered').last}
 
   rails_admin do
-    configure :order_status_id do
-      visible false
-    end
-    configure :address_long do
-      visible false
-    end
-    configure :address_lat do
-      visible false
+    list do
+      field :id do
+        visible true
+      end
+      field :user_full_name do
+        filterable true
+        visible false
+      end
+      field :address do
+        filterable true
+        visible false
+      end
+      field :subtotal do
+        visible true
+        filterable false
+      end
+      field :tax do
+        visible true
+        filterable false
+      end
+      field :total do
+        visible true
+      end
+      field :status, :enum do
+        visible true
+        pretty_value do
+          path = bindings[:view].edit_path(model_name: 'order', id: bindings[:object].id)
+          bindings[:view].form_tag(path, action: "post", enctype: "multipart/form-data") do
+            bindings[:view].content_tag(:input, type: "hidden", value: path, class: 'order-post-url') do
+              bindings[:view].select_tag(:status, bindings[:view].options_for_select([['cart', 'cart'], ['pending', "pending"], ['preparing', "preparing"], ['on_the_way', "on_the_way"], ['completed', "completed"]], bindings[:object].status), class: "order-status-select")
+            end
+          end
+        end
+      end
+      field :created_at do
+        visible true
+      end
     end
     edit do
       configure :print do
