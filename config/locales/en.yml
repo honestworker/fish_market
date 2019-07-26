@@ -339,17 +339,17 @@ en:
       format:
         delimiter: ","
         format: "%u%n"
-        precision: '2'
+        precision: 2
         separator: "."
-        significant: Significant
-        strip_insignificant_zeros: Strip insignificant zeros
+        significant: false
+        strip_insignificant_zeros: false
         unit: "$"
     format:
       delimiter: ","
-      precision: '3'
+      precision: 3
       separator: "."
-      significant: Significant
-      strip_insignificant_zeros: Strip insignificant zeros
+      significant: false
+      strip_insignificant_zeros: false
     human:
       decimal_units:
         format: "%n %u"
@@ -361,10 +361,10 @@ en:
           trillion: trillion
           unit: Unit
       format:
-        delimiter: Delimiter
-        precision: '3'
-        significant: 'true'
-        strip_insignificant_zeros: 'true'
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
         format: "%n %u"
         units:
@@ -381,11 +381,11 @@ en:
           tb: TB
     percentage:
       format:
-        delimiter: Delimiter
+        delimiter: ''
         format: "%n%"
     precision:
       format:
-        delimiter: Delimiter
+        delimiter: ''
   offers: العروض
   online_order: If you have not asked for fresh fish online before then it would be impossible
   online_order_body: We can offer fresh fish home delivery because we are 100% sure that we have developed a system that delivers fresh fish and seafood directly to your door.
@@ -393,9 +393,7 @@ en:
   other_services: Other services
   our_lab: Our lab
   our_lab_body: Our lab body
-  our_lab_body_html: 'We have prepared this place with all care and health certificates for everyone who works there.</br> We have innovative devices to clean fish and package it to receive the same quality </br>and temperature that makes it fresh and clean.
-
-'
+  our_lab_body_html: 'We have prepared this place with all care and health certificates for everyone who works there.</br> We have innovative devices to clean fish and package it to receive the same quality </br>and temperature that makes it fresh and clean.'
   packing: Packing
   payment_methods: برجاء العلم ان وسيلة الدفع هي الدفع عند الأستلام و ايضا يتوفر جهاز سحب من بطاقات الصراف الالي.
   price_per_kilo: Price per kilo

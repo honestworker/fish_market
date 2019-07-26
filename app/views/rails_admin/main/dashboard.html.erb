@@ -1,7 +1,7 @@
 
 <h4>Orders</h4>
 
-<% @orders = Order.order(created_at: :desc).last(10) %>
+<% @orders = Order.order(created_at: :desc).first(10) %>
 
 <% if I18n.locale == :en %>
     <% language_url = '?locale=en' %>
@@ -13,55 +13,92 @@
     <span style="float:left"><%= t(:order) %> <%= @orders.length %></span>
 <% end %>
 
-<table class="table table-condensed table-striped">
+<table class="table table-condensed table-striped orders_table">
     <thead>
         <tr>
             <th class="header pjax  id_field integer_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=id" rel="tooltip" title="">Id</th>
-            <th class="header pjax  subtotal_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=subtotal" rel="tooltip" title="">Subtotal</th>
-            <th class="header pjax  tax_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=tax" rel="tooltip" title="">Tax</th>
             <th class="header pjax  total_field decimal_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=total" rel="tooltip" title="">Total</th>
-            <th class="header pjax  created_at_field datetime_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=created_at" rel="tooltip" title="">Created_at</th>
-            <th class="header pjax  updated_at_field datetime_type" data-href="/admin/order<%= language_url %>&amp;model_name=order&amp;sort=updated_at" rel="tooltip" title="">Updated_at</th>
-            <th class="other right shrink">...</th>
+            <th class="header pjax  status_field enum_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=status" rel="tooltip" title="">Status</th>
+            <th class="header pjax  user_phone_number_field string_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=user_phone_number" rel="tooltip" title="">Phone number</th>
+            <th class="header pjax  address_field string_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=address" rel="tooltip" title="">Address</th>
+            <th class="header pjax  user_full_name_field string_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=user_full_name" rel="tooltip" title="">Full name</th>
+            <th class="header pjax  notes_field text_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=notes" rel="tooltip" title="">Notes</th>
+            <th class="header pjax  address_url_field string_type" data-href="/admin/order?locale=en&amp;model_name=order&amp;set=1&amp;sort=address_url" rel="tooltip" title="">Address url</th>
+            <th class="order_items_field has_many_association_type"rel="tooltip" title="">Order Items</th>
             <th class="last shrink"></th>
+            </tr>
         </tr>
     </thead>
     <tbody>
-        <% @orders.each do |order_item| %>
+        <% @orders.each do |order| %>
         <tr class="order_row ">
-            <td class="id_field integer_type" title="<%= order_item.id%>"><%= order_item.id%></td>
-            <td class="subtotal_field decimal_type" title="<%= order_item.subtotal %>"><%= order_item.subtotal %></td>
-            <td class="tax_field decimal_type" title="<%= order_item.tax %>"><%= order_item.tax %></td>
-            <td class="total_field decimal_type" title="<%= order_item.total %>"><%= order_item.total %></td>
-            <td class="created_at_field datetime_type" title="<%= order_item.created_at %>"><%= order_item.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-            <td class="updated_at_field datetime_type" title="<%= order_item.updated_at %>"><%= order_item.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-            <td class="other right"><a class="pjax" href="/admin/order<%= language_url %>&amp;model_name=order&amp;set=<%= order_item.id%>">...</a></td>
+            <td class="id_field integer_type" title="<%= order.id%>"><%= order.id%></td>
+            <td class="total_field decimal_type" title="<%= order.total %>"><%= order.total %></td>
+            <td class="status_field enum_type" title="">
+            <% order_update_path = edit_path("order", order.id) %>
+            <%= form_tag(order_update_path, action: "post", enctype: "multipart/form-data") do %>
+            <%= text_field_tag '', order_update_path, type: 'hidden', class: 'order-post-url' %>
+            <%= select_tag :status, options_for_select([[:cart, 'cart'], [:pending, "pending"], [:preparing, "preparing"], [:on_the_way, "on_the_way"], [:completed, "completed"]], order.status), :name => "order[status]", :class => "order-status-select" %>
+            <% end %>
+            </td>
+            <% if (order.user_phone_number) %>
+            <td class="user_phone_number_field string_type" title="<%= order.user_phone_number %>"><%= order.user_phone_number %></td>
+            <% else %>
+            <td class="user_phone_number_field string_type" title="<%= order.user_phone_number %>">-</td>
+            <% end %>
+            <% if (order.address) %>
+            <td class="address_field string_type" title="<%= order.address %>"><%= order.address %></td>
+            <% else %>
+            <td class="address_field string_type" title="<%= order.address %>"> - </td>
+            <% end %>
+            <% if (order.user_full_name) %>
+            <td class="user_full_name_field string_type" title="<%= order.user_full_name %>"><%= order.user_full_name %></td>
+            <% else %>
+            <td class="user_full_name_field string_type" title="<%= order.user_full_name %>">-</td>
+            <% end %>
+            <% if (order.notes) %>
+            <td class="notes_field text_type" title="<%= order.notes %>"><%= order.notes %></td>
+            <% else %>
+            <td class="notes_field text_type" title="<%= order.notes %>">-</td>
+            <% end %>
+            <% if (order.address_url) %>
+            <td class="address_url_field string_type" title="<%= order.address_url %>"><%= order.address_url %></td>
+            <% else %>
+            <td class="address_url_field string_type" title="<%= order.address_url %>">-</td>
+            <% end %>
+            <td class="order_items_field has_many_association_type" title="">
+            <% if (!order.order_items.nil?) %>
+                <% order.order_items.each do |order_item| %>
+                    <a class="pjax" href="/admin/order_item/<%= order_item.id %>?locale=en"><%= order_item.name %></a>
+                <% end %>
+            <% end %>
+            </td>
 
             <td class="last links">
                 <ul class="inline list-inline">
                     <li title="Show" rel="tooltip" class="icon show_member_link ">
-                        <a class="pjax" href="/admin/order/<%= order_item.id%><%= language_url %>">
+                        <a class="pjax" href="/admin/order/<%= order.id%><%= language_url %>">
                         <i class="icon-info-sign"></i>
                         <span style="display:none">Show</span>
                         </a>
                     </li>
                     
                     <li title="Edit" rel="tooltip" class="icon edit_member_link ">
-                        <a class="pjax" href="/admin/order/<%= order_item.id%>/edit<%= language_url %>">
+                        <a class="pjax" href="/admin//<%= order.id%>/edit<%= language_url %>">
                         <i class="icon-pencil"></i>
                         <span style="display:none">Edit</span>
                         </a>
                     </li>
                     
                     <li title="Delete" rel="tooltip" class="icon delete_member_link ">
-                        <a class="pjax" href="/admin/order/<%= order_item.id%>/delete<%= language_url %>">
+                        <a class="pjax" href="/admin/order/<%= order.id%>/delete<%= language_url %>">
                         <i class="icon-remove"></i>
                         <span style="display:none">Delete</span>
                         </a>
                     </li>
                     
                     <li title="Show in app" rel="tooltip" class="icon show_in_app_member_link ">
-                        <a class="" href="/admin/order/<%= order_item.id%>/show_in_app<%= language_url %>">
+                        <a class="" href="/admin/order/<%= order.id%>/show_in_app<%= language_url %>">
                         <i class="icon-eye-open"></i>
                         <span style="display:none">Show in app</span>
                         </a>
@@ -74,7 +111,7 @@
 </table>
 
 <h4>Products</h4>
-<% @products = Product.order(created_at: :desc).last(10) %>
+<% @products = Product.order(created_at: :desc).first(10) %>
 
 <% if I18n.locale == :en %>
     <span style="padding-right: 10px"><%= link_to t(:show_all), '/admin/product/?locale=en', class: "btn btn-primary" %></span>
