@@ -70,6 +70,7 @@ class OrderItem < ApplicationRecord
 
   def update_order_total
     new_subtotal = order.calculate_subtotal
-    order.update(subtotal: new_subtotal, tax: new_subtotal * 0.05, total: (new_subtotal *0.05) + new_subtotal )
+    #order.update(subtotal: new_subtotal, tax: new_subtotal * 0.05, total: (new_subtotal *0.05) + new_subtotal )
+    order.update(subtotal: new_subtotal, tax: new_subtotal * 0.05, delivery: 25, total: 25 + new_subtotal )
   end
 end

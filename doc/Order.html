@@ -118,6 +118,7 @@
 <pre class="code ruby"><code class="ruby">id                :integer          not null, primary key
 subtotal          :decimal(12, 3)
 tax               :decimal(12, 3)
+delivery          :decimal(12, 3)
 total             :decimal(12, 3)
 order_status_id   :integer
 created_at        :datetime         not null
@@ -287,12 +288,12 @@ address_lat       :float            default(0.0)</code></pre>
   <span class='id identifier rubyid_last_order'>last_order</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_orders'>orders</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_last_order'>last_order</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_last_order'>last_order</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_completed?'>completed?</span>
-      <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_orders'>orders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>tax:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>total:</span><span class='int'>0</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_orders'>orders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>delivery:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>total:</span><span class='int'>0</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
       <span class='kw'>return</span> <span class='id identifier rubyid_last_order'>last_order</span>
     <span class='kw'>end</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_orders'>orders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>tax:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>total:</span><span class='int'>0</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_orders'>orders</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>delivery:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>total:</span><span class='int'>0</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

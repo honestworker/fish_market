@@ -21,3 +21,32 @@
 		clear: left;
 	}
 }
+
+
+.category-view {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.category-view .category-item {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+}
+
+.category-view a {
+    background-color: rgba(255, 167, 66, 0.8);
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.category-view a.active {
+    background-color: #ffa742;
+}

@@ -5,6 +5,7 @@
 #  id                :integer          not null, primary key
 #  subtotal          :decimal(, )      default(0.0)
 #  tax               :decimal(, )      default(0.0)
+#  delivery          :decimal(, )      default(0.0)
 #  total             :decimal(, )      default(0.0)
 #  order_status_id   :integer
 #  created_at        :datetime         not null
@@ -42,7 +43,8 @@ class Order < ApplicationRecord
 
 
   ### Validations
-  validates :tax, :subtotal, numericality: true
+  #validates :tax, :subtotal, numericality: true
+  validates :delivery, :tax, :subtotal, numericality: true
   #validates :total, numericality: { greater_than: 100 }, if: :not_cart?
 
   def not_cart?
@@ -53,6 +55,9 @@ class Order < ApplicationRecord
 
   rails_admin do
     configure :order_status_id do
+      visible false
+    end
+    configure :tax do
       visible false
     end
     configure :address_long do
@@ -69,7 +74,11 @@ class Order < ApplicationRecord
         help ''
         read_only true
       end
-      configure :tax do
+      #configure :tax do
+      #  help ''
+      #  read_only true
+      #end
+      configure :delivery do
         help ''
         read_only true
       end
@@ -108,12 +117,12 @@ class Order < ApplicationRecord
     last_order = user.orders.last
     if last_order.present?
       if last_order.status.completed?
-        user.orders.create(tax: 0, total: 0)
+        user.orders.create(tax: 0, delivery: 25, total: 0)
       else
         return last_order
       end
     else
-      user.orders.create(tax: 0, total: 0)
+      user.orders.create(tax: 0, delivery: 25, total: 0)
     end
   end
 
@@ -124,8 +133,10 @@ class Order < ApplicationRecord
 
   def update_subtotal
     self[:subtotal] = calculate_subtotal
-    self[:tax] = subtotal * 0.05
-    self[:total] = subtotal + self[:tax]
+    self[:tax] = self[:subtotal] * 0.05
+    self[:delivery] = 25
+    #self[:total] = self[:subtotal] + self[:tax]
+    self[:total] = self[:subtotal] + self[:delivery]
   end
 
   def populate_address_url

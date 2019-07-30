@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   protect_from_forgery with: :exception
-  helper_method :current_order
+  helper_method :current_order, :first_category
 
   def current_order
     session[:order_id] = nil unless Order.find_by(id: session[:order_id])
@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
     else
       Order.new
     end
+  end
+
+  def first_category
+    cat = Category.first()
+    category_id = cat.id
   end
 
   def default_url_options(options={})

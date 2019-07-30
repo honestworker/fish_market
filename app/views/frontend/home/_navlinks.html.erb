@@ -7,7 +7,7 @@
 
     </li>
     <li class="actives">
-      <a href="<%= products_url %>" style="font-size: 40px;
+      <a href="<%= category_products_path(first_category) %>" style="font-size: 40px;
           color: orange!important;">
         <%= t(:shop)%>
       </a>
@@ -42,9 +42,9 @@
               <li class="total">
                 <span ><strong><%= t('cart.total') %></strong>: <%= current_order.subtotal %></span>
                 <br>
-                <span ><strong><%= t('tax_rate') %></strong>: <%= current_order.tax %></span>
+                <span ><strong><%= t('delivery') %></strong>: <%= current_order.delivery %></span>
                 <br>
-                <span ><strong><%= t('total_after_tax') %></strong>: <%= current_order.total %></span>
+                <span ><strong><%= t('total_after_delivery') %></strong>: <%= current_order.total %></span>
                 <br>
                 <span ><strong><%= t('tax_number') %></strong>: ٣٠٠٦١٩٧٦٣١٠٠٠٠٣</span>
                 <br>

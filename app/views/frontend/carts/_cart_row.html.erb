@@ -1,37 +1,45 @@
 <%= form_for order_item do |f| %>
-<tr class="item-info">
-<!--  <td>-->
-<!--    <a href="single-product.html">-->
-<!--      <img src="<%#= product.product_images.first.try(:image).try(:url) %>" alt="" style="   width: 110px;-->
-<!--          height: 110px;"> </a>-->
-<!--  </td>-->
-  <td data-th="Item" class="col item">
-    <strong class="product-item-name">
-      <a href="<%= product_path(id: product.id)%> "><%= product.name.humanize %></a>
-    </strong>
-  </td>
-
-  <td class="col price" data-th="Price">
+  <tr class="item-info">
+  <!--  <td>-->
+  <!--    <a href="single-product.html">-->
+  <!--      <img src="<%#= product.product_images.first.try(:image).try(:url) %>" alt="" style="   width: 110px;-->
+  <!--          height: 110px;"> </a>-->
+  <!--  </td>-->
+    <td data-th="Item" class="col item">
+      <strong class="product-item-name">
+        <% if (product.name == "" || product.name.nil?) %>
+          <a href="<%= product_path(id: product.id)%> "><%= t(:none) %></a>
+        <% else %>
+          <a href="<%= product_path(id: product.id)%> "><%= product.name.humanize %></a>
+      <% end %>
+      </strong>
+    </td>
+  
+    <td class="col price" data-th="Price">
+      <span class="cart-price">
+          <span class="price"><%= number_to_currency order_item.unit_price, unit: t(:SAR) %> <%= order_item.quantity_type.text %></span>
+      </span>
+    </td>
+  
+    <td class="col qty" data-th="Qty">
+      <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "quantity_field", min: 1 %>
+      <%= f.hidden_field :product_id, value: product.id %>  </td>
+  
+    <td class="col subtotal" data-th="Subtotal">
     <span class="cart-price">
-        <span class="price"><%= number_to_currency order_item.unit_price, unit: t(:SAR) %> <%= order_item.quantity_type.text %></span>
+        <span class="price"><%= number_to_currency order_item.total_price, unit: t(:SAR) %> <%= order_item.quantity_type.text %></span>
     </span>
-  </td>
-
-  <td class="col qty" data-th="Qty">
-    <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "quantity_field", min: 1 %>
-    <%= f.hidden_field :product_id, value: product.id %>  </td>
-
-  <td class="col subtotal" data-th="Subtotal">
-  <span class="cart-price">
-      <span class="price"><%= number_to_currency order_item.total_price, unit: t(:SAR) %> <%= order_item.quantity_type.text %></span>
-  </span>
-  </td>
-
-  <td class="col action">
-    <%= f.submit t("cart.update_quantity"), class: "btn btn-primary" %>
-  </td>
-  <td class="col action">
-    <%= link_to t("cart.remove"), order_item, { data: { confirm: t('cart.sure_delete', product_name: order_item.product.name.humanize) }, method: :delete, class: "btn btn-danger" } %>
-  </td>
-</tr>
-<% end %>
+    </td>
+  
+    <td class="col action">
+      <%= f.submit t("cart.update_quantity"), class: "btn btn-primary" %>
+    </td>
+    <td class="col action">
+      <% if (product.name == "" || product.name.nil?) %>
+        <%= link_to t("cart.remove"), order_item, { data: { confirm: t('cart.sure_delete', product_name: t(:none)) }, method: :delete, class: "btn btn-danger" } %>
+      <% else %>
+        <%= link_to t("cart.remove"), order_item, { data: { confirm: t('cart.sure_delete', product_name: order_item.product.name.humanize) }, method: :delete, class: "btn btn-danger" } %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>  

@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 20181125112558) do
   create_table "orders", force: :cascade do |t|
     t.decimal "subtotal", default: "0.0"
     t.decimal "tax", default: "0.0"
+    t.decimal "delivery", default: "25.0"
     t.decimal "total", default: "0.0"
     t.integer "order_status_id"
     t.datetime "created_at", null: false

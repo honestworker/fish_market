@@ -47,11 +47,38 @@
       <div class="container">
         <div class="row m-10">
 
+          <!-- Categories -->
           <div class="col-md-12">
+            <div class="fixstic">
+              <div class="row category-view">
+                <div class="clearfix"></div>
+                  <div class="category-item">
+                    <% if @current_category == 0 %>
+                      <a href="<%= category_products_path(0) %>" class="active"><%= t(:show_all) %></a>
+                    <% else %>
+                      <a href="<%= category_products_path(0) %>"><%= t(:show_all) %></a>
+                    <% end %>
+                  </div>
+                  <% @categories.each do |category| %>
+                    <div class="category-item">
+                      <% if @current_category ==  category.id %>
+                        <a href="<%= category_products_path(category.id) %>" class="active"><%= category.name.humanize %></a>
+                      <% else %>
+                        <a href="<%= category_products_path(category.id) %>"><%= category.name.humanize %></a>
+                      <% end %>
+                    </div>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- end Categories -->
 
+          <!-- Products -->
+          <div class="col-md-12">
             <div class="fixstic">
               <div class="row pro-view">
                 <div class="clearfix"></div>
+
                 <!-- end this select -->
                 <% @products.each do |product| %>
 
@@ -79,16 +106,14 @@
                   </div>
                   <!-- end this col -->
 
-
                 <% end %>
-
-
               </div>
               <!-- end this row -->
             </div>
             <!-- end this fixstic -->
           </div>
-          <!-- end this col-md-9 -->
+          <!-- end Products -->
+
         </div>
         <!-- end this row -->
       </div>

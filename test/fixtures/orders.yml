@@ -5,6 +5,7 @@
 #  id                :integer          not null, primary key
 #  subtotal          :decimal(, )      default(0.0)
 #  tax               :decimal(, )      default(0.0)
+#  delivery          :decimal(, )      default(0.0)
 #  total             :decimal(, )      default(0.0)
 #  order_status_id   :integer
 #  created_at        :datetime         not null
@@ -25,11 +26,13 @@
 one:
   subtotal: 9.99
   tax: 9.99
+  delivery: 9.99
   total: 9.99
   order_status: one
 
 two:
   subtotal: 9.99
   tax: 9.99
+  delivery: 9.99
   total: 9.99
   order_status: two

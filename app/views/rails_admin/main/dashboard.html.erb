@@ -1,7 +1,7 @@
 
 <h4>Orders</h4>
 
-<% @orders = Order.order(created_at: :desc).first(10) %>
+<% @orders = Order.order(created_at: :desc).first(20) %>
 
 <% if I18n.locale == :en %>
     <% language_url = '?locale=en' %>

@@ -75,10 +75,10 @@
               <%= t('cart.total') %> = <span><%= number_to_currency order.subtotal, unit: t(:SAR) %>
             </h5>
             <h5>
-              <%= t('tax_rate') %> = <span><%= number_to_currency order.tax, unit: t(:SAR) %>
+              <%= t('delivery') %> = <span><%= number_to_currency order.delivery, unit: t(:SAR) %>
             </h5>
             <h5>
-              <%= t('total_after_tax') %> = <span><%= number_to_currency order.total, unit: t(:SAR) %>
+              <%= t('total_after_delivery') %> = <span><%= number_to_currency order.total, unit: t(:SAR) %>
             </h5>
             <%= link_to t('cart.remove_products'), { controller: 'carts', action: 'destroy'}, { data: { confirm: t('cart.sure_delete_all') }, method: :delete, class: "btn btn-danger" } %>
             <%= button_to t("cart.checkout"), checkout_order_cart_path, class: "reserve_btn reserve_btn2 btnCart"  %>

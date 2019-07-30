@@ -232,6 +232,7 @@ en:
   delivery: Delivery
   delivery_body: Best Seafood, Best Service, Best Tip” This is what we always look for. We have been offering the best quality seafood directly to the homes of our customers in Riyadh. And looking forward to serve all over Saudi Arabia. Any person in any area would like to communicate with one of our customer service by phone before ordering. They will direct your attention to any seasonal specials and will be happy to advice you on a selection of fish to suit your needs.
   delivery_time: delivery will take around 12 hours
+  total_after_delivery: Total
   email: email
   enumerize:
     order:
@@ -334,6 +335,7 @@ en:
   meet_our_team: Meet our team
   meet_our_team_title: We are considered as a close family due to our relating thoughts and the strength of determination to work in one team, which aims to develop the product and reach to the top, which every successful person aims. Our team is a Saudi specialist in fish and marine including a fisherman and a chef.
   not_found: Not found
+  none: None
   number:
     currency:
       format:
@@ -428,3 +430,4 @@ en:
   you_may_like: You can read also..
   your_order_number: order number
   your_order_status: order status
+  show_all: "إظهار الكل"

@@ -1,6 +1,6 @@
 $modal = $('.modal'),
-$modalBody = $('.modal .modal-body'),
+$modalBody = $('.modal .modal-body');
 $modalHeading = $('.modal .modal-heading');
-$modalHeading.html("<%= @product.name.humanize %>");
+$modalHeading.html("<% if (@product.name == "" || @product.name.nil?) %><%= t(:none) %><% else %><%= @product.name.humanize %><% end %>");
 $modalBody.html("<%= escape_javascript(render @product) %>");
 $modal.modal();

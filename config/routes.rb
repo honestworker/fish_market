@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join('|')}/ do
     scope :module => "frontend" do
       get "about" => "abouts#show", :id => '1'
-      resources :products, only: [:index, :show]
+      scope shallow_path: "front" do
+        resources :categories do
+          resources :products, only: [:index, :show], shallow: true
+        end
+      end
       resources :order_items, only: [:create, :update, :destroy]
       resources :orders, only: [:index, :show, :create]
       resources :blogs
@@ -26,7 +30,6 @@ Rails.application.routes.draw do
           post :order_status
         end
       end
-      # resources :orders, only: [:index, :show, :create]
       get 'meet' => 'abouts#meet'
       get 'faq' => 'abouts#faq'
       root to: "home#index"
@@ -34,8 +37,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories
-
+  #resources :categories
 
   scope "(:locale)", locale: /#{I18n.available_locales.join('|')}/ do
     namespace :api, defaults: {format: 'json'} do

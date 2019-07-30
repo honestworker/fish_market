@@ -14,7 +14,11 @@
   <div class="col-md-5">
     <div class="product">
       <a href="<%= product_path(product.id)%>">
-        <h3><%= @product.name.humanize %></h3>
+        <% if (@product.name == "" || @product.name.nil?) %>
+          <h3><%= t(:none) %></h3>
+        <% else %>
+          <h3><%= @product.name.humanize %></h3>
+        <% end %>
       </a>
       <p class="price"><img src="<%= asset_path('price.png') %>" alt=""><%= @product.piece_price %>
         <%= t(:SAR) %><span><%= t(:price_per_piece) %></span></p>
