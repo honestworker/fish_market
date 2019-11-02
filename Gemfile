@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'dotenv', '~> 2.2', '>= 2.2.1'
-gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'devise', '~> 4.7'
 # for mobile verification
 gem 'twilio-ruby', '~> 4.0.0'
 gem 'phonelib'
